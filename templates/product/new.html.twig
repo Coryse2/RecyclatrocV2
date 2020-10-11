@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recyclatroc -
+				Nouvelle annonce
+{% endblock %}
+
+{% block body %}
+	<main class="global-container">
+		<div class="card-header">
+			<h1 class="breadcrumb">Création d'une nouvelle annonce</h1>
+		</div>
+		<div class="signin">
+			{{ form_start(form) }}
+			{{ form_row(form.name) }}
+			{{ form_row(form.reference) }}
+			{{ form_row(form.city, {'id':'city', 'attr':{'class':'form-control'} }) }}
+			{#<input type="search" id="city" class="form-control" placeholder="Entrez votre ville ou votre code postal" />#}
+			{{ form_row(form.picture) }}
+			{{ form_row(form.comment) }}
+			{{ form_row(form.category) }}
+			{{ form_row(form.brand) }}
+
+			<div class="button-container">
+
+				{{ include('product/_form.html.twig') }}
+
+				
+				<div>
+				
+				<input type="button"  class="btn btn-outline-dark" value="Page précédente" onclick="history.go(-1)">
+</form>
+				
+				</main>
+
+				<!-- load JS -->
+				<script src="https://cdn.jsdelivr.net/npm/places.js@1.17.1"></script>
+				<script src="{{ asset('js/algo.js') }}"></script>
+			</div>
+		{% endblock %}

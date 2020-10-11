@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recyclatroc - Modification
+{% endblock %}
+
+{% block body %}
+	<main class="global-container ">
+		<h1 class="breadcrumb">Mettre à jour le compte de
+			{{ app.user.username  }}</h1>
+		<div class="signin">
+			{{ form_start(form) }}
+			{{ form_row(form.username) }}{{ form_row(form.email) }}
+			{{ form_row(form.city, {'id':'city', 'attr':{'class':'form-control'} }) }}
+			{{ form_row(form.avatar) }}
+			{{ form_row(form.presentation) }}
+			{{ form_row(form.phone) }}
+			{{ form_row(form.password) }}
+			<div class="button-container">
+			{{ include('user/_form.html.twig') }}
+			{{ include('user/_delete_form.html.twig') }}
+			</div>
+		</div>
+	<input type="button"  class="btn btn-outline-dark" value="Page précédente" onclick="history.go(-1)">
+</form>
+
+	<!-- load JS -->
+	<script src="https://cdn.jsdelivr.net/npm/places.js@1.17.1"></script>
+	<script src="{{ asset('js/algo.js') }}"></script>
+
+</main>{% endblock %}

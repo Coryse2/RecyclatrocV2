@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recyclatroc - Annonces
+{% endblock %}
+
+{% block body %}
+	<main class="global-container">
+		<div class="card-header">
+			<h1 class="breadcrumb">Annonces de
+				{{ user.username }}</h1>
+		</div>
+		<form class="form-horizontal">
+			<fieldset>
+				<div class="form-group">
+					<table class="product-table table">
+						<thead>
+							<tr>
+								<th class="card-header">Nom</th>
+								<th class="card-header">Référence</th>
+								<th class="productPictureList card-header">Photo</th>
+								<th class="card-header">Commentaire</th>
+								<th class="card-header">Utilisateur</th>
+								<th class="card-header">Ajouté le</th>
+								<th class="card-header">Détail</th>
+								<th class="card-header">Actions</th>
+
+							</tr>
+						</thead>
+					</tr>
+				</thead>
+				<tbody>
+
+					{% for product in user.products %}
+						<tr>
+							<td>{{ product.name }}</td>
+							<td>{{ product.reference }}</td>
+							<td>
+								<div class="productPictureList" style="width:100% text-align:center">
+									{% if product.picture is not null %}
+										<img class="productPictureList" style="width:40%" src="{{ asset(product.picture) }}">
+									{% else %}
+										<img class="productPictureList" style="width:40%" src="{{asset('images/imageDef.png')}}">
+									{% endif %}
+								</div>
+							</td>
+
+							<td>{{ product.comment }}</td>
+							<td>{{ product.user }}</td>
+							<td>{{ product.createdAt ? product.createdAt|date('d-m-Y') : '' }}</td>
+
+							<td>
+								<a href="{{ path('product_show', {'id': product.id}) }}"><img class="productIconList" src="{{asset('images/document.png')}}"></a>
+							</td>
+							{#Only the  product owner is athorized to make change on it#}
+							{% if app.user == product.user  %}
+
+								<td>
+									<a class="btn btn-outline-primary" href="{{ path('product_edit', {'id': product.id}) }}">Modifier</a>
+									{{ include('product/_delete_form.html.twig') }}
+								</td>
+							{% else %}
+								<td>-</td>
+							{% endif %}
+						</tr>
+					</div>
+				</tbody>
+			</tr>
+		{% else %}
+			<tr>
+				<td colspan="8">Vous n'avez pas encore publié d'annonce</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{#Every user is authorized to create a new product#}
+<button class="btn btn-outline-primary">
+	<a href="{{ path('product_new') }}">Créer une annonce</a>
+</button>
+</div>
+<a class="btn btn-outline-dark" href="#top">Haut de page</a>
+	<input type="button"  class="btn btn-outline-dark" value="Page précédente" onclick="history.go(-1)">
+</form></div></main>{% endblock %}

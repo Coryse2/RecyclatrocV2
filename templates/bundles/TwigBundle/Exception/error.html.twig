@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+ {# All other HTML erros - including 500 #}
+ <main class="global-container">
+ <div class="error-container">
+   <p class="col text-center black-text">
+     <h1>Oups!
+     </h1>
+     <h2>Désolé
+       {{ app.user.username | default('') }}
+       notre système a retourné une erreur
+       {{ status_code | default('') }} 
+       {{ status_text | default('')}}.</h2>
+     <div>
+       N'hésitez pas à contacter le webmaster du site pour la corriger.
+         <a class="nav-link" href="{{ path('contactUs') }}">Contact</a>
+     </div>
+   </p>
+ </div>
+ </main>
+ {% endblock %}

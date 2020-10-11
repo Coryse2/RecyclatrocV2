@@ -1,0 +1,491 @@
+/** ALL **/
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    padding-bottom: 150px; 
+}
+
+.global-container {
+    padding: .2em;
+    margin-top: 3.2em;
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+table {
+    margin: 1em;
+}
+
+.btn {
+    margin: .5em 0.3em .5em 0;
+    font-size: .9em;
+}
+
+p.blockquote {
+    color: grey;
+    margin: 1em;
+    font-size: 1.2em;
+}
+
+/** NAVBAR **/
+nav {
+    margin-bottom: 2em;
+}
+
+.navbar-container {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.carousel-inner {
+    width: 100%;
+}
+
+.carousel-item {
+    background-image: url(../images/board-bright.jpg);
+    opacity: .8;
+}
+
+.d-block {
+    margin: 1em auto .5em auto;
+}
+
+/** PRODUCT & USER SHEET **/
+.product-container,
+.user-container {
+    margin: 5em auto;
+}
+
+.product-container,
+.user-container,
+.signin-form {
+    width: 100%;
+    height: 65%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.signin-form {
+    margin: 1em auto;
+}
+
+.leftProduct,
+.leftUser
+    {
+    text-align: center;
+}
+
+.leftProduct,
+.leftUser,
+.signin-left {
+    width: 40%;
+    margin: .5em;
+}
+
+
+.productPictureSolo {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rigthProduct,
+.rightUser,
+.signin-right {
+    float: right;
+    width: 45%;
+    margin: .5em;
+}
+
+/**  SEARCH **/
+.searchFormContainer {
+    margin: 1em 2em;
+    padding-top: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.search-form-left {
+    width: 40%;
+    text-align: left;
+}
+
+.search-form-right {
+    float: right;
+    width: 45%;
+}
+
+.formSearchList {
+    padding-inline-start: 0;
+    margin: .5em;
+}
+
+.formSearchList li {
+    padding-inline-start: 0;
+    margin: .5em auto .5em .5em;
+}
+
+/**Products**/
+.card-product {
+    width: 100%;
+    margin: 0;
+    padding-inline-start: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.presentation-product-card {
+    margin: 3em auto;
+    width: 40%;
+}
+
+.home-picture {
+    width: 100%;
+    text-align: center;
+}
+
+.home-picture img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/**Lists**/
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0;
+    padding-inline-start: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.card:hover {
+    box-shadow: 10px 5px 5px grey;
+    border: orange;
+}
+
+.presentation-card {
+    width: 25%;
+    margin: 3em;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* List of product*/
+.product-table>table {
+    width: 50%;
+    margin: 5em auto;
+}
+
+.identity-list {
+    list-style-type: disc;
+}
+
+.productPictureList {
+    width: 80%;
+}
+
+.action-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+}
+
+.table>th {
+    width: auto;
+    vertical-align: center;
+}
+
+.table>td {
+    width: 121px;
+    padding: .5em;
+    vertical-align: center;
+}
+
+tr {
+    justify-content: center;
+    border-spacing: 50px;
+}
+
+.productIconList {
+    width: 40%;
+    margin-left: auto;
+}
+
+/** FOOTER **/
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.footer-navbar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-around;
+    list-style: none;
+    padding: .5em 0em;  
+}
+
+.footer-nav-link {
+    color: white;
+}
+
+/*SIGNIN FORM*/
+.signin {
+    padding: 2em;
+    margin: 2em auto;
+    width: 60%;
+}
+
+/**Legal notice and About **/
+
+.text-container {
+    padding: 2em;
+}
+
+.text-container>h2 {
+    padding: 1em 0;
+}
+
+.text-container>h3 {
+    font-size: 1.5em;
+}
+
+.text-icon {
+    width: 2%;
+    margin-right: .5em;
+}
+
+/*ERRORS*/
+.error-container {
+    width: 50%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 12em;
+}
+
+/* Tables */
+.table th,
+td {
+    width: 10%;
+    height: 15px;
+    border-spacing: 0px;
+}
+
+/* Admin contact form */
+/* I hide the honeypot field, I gave the name 'sayHello' and not
+ 'honeypot' to trap the bot, the field need to seem like others  */
+.sayHello{
+    display:none;
+}
+
+@media (max-width: 810px) {
+
+    /** ALL **/
+    .global-container {
+        padding: .3em;
+        margin-top: 3.2em;
+        width: 100%;
+        height: 100%;
+    }
+
+    .navbar {
+        margin-bottom: .1em;
+    }
+
+    body {
+        margin: 0 .1em;
+    }
+
+    .breadcrumb {
+        font-size: 1.8em;
+        text-align: center;
+    }
+
+    .text-container {
+        padding: .5em 1em;
+    }
+
+    /** HOME h1 **/
+    .display-3 {
+        text-align: center;
+        font-size: 3em;
+    }
+
+    /** Legal notice**/
+    .text-collapsible {
+        background-color: rgb(238, 205, 192);
+        color: #e95420;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+    }
+
+    .text-active,
+    .text-collapsible:hover {
+        background-color: rgb(238, 205, 192);
+    }
+
+    .content {
+        display: none;
+        overflow: hidden;
+        background-color: #f1f1f1;
+        padding: 1em;
+        font-size: .8em;
+    }
+
+    .content>ul {
+        padding-inline-start: .5em;
+    }
+
+    .content>li {
+        padding-bottom: .5em;
+    }
+
+    .text-icon {
+        width: 5%;
+        margin-right: .5em;
+    }
+
+    .text-container>h1,
+    h2 {
+        margin-bottom: .5em;
+        padding: .5em;
+    }
+
+    .text-container>h3 {
+        font-size: 1em;
+    }
+
+    /** PRODUCT & SEARCH SHEET **/
+    .product-container,
+    .user-container,
+    .searchFormContainer {
+        margin: auto;
+        width: 100%;
+        height: 65%;
+    }
+
+    .leftProduct,
+    .leftUser,
+    .search-form-left {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .productPictureSolo {
+        width: 100%;
+    }
+
+    .rigthProduct,
+    .rightUser,
+    .search-form-right {
+        width: 100%;
+    }
+
+    .search-form-right {
+        font-size: .8em;
+    }
+
+    .search-form-right h4 {
+        font-size: 1.2em;
+    }
+
+    .card-body>a {
+        padding: 0;
+    }
+
+    .card-list {
+        display: inline;
+        flex-wrap: nowrap;
+        margin: 0;
+        padding-inline-start: 0;
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
+
+    .presentation-card {
+        width: 100%;
+        margin: 0;
+    }
+
+    .presentation-card:hover {
+        box-shadow: 10px 5px 5px grey;
+    }
+
+    .error-container>h1,
+    h2 {
+        font-size: 1.2em;
+        text-align: justify;
+        margin-bottom: 1em;
+    }
+
+    .error-container>p {
+        font-size: .8em;
+        text-align: justify;
+    }
+
+    .error-img {
+        width: 50%
+    }
+
+    .signin {
+        padding: 2em;
+        margin: 2em auto;
+        width: 90%;
+    }
+
+    .d-block {
+        margin: .1em auto .5em auto;
+        width: 100%
+    }
+
+    /** FOOTER **/
+    .footer-navbar-nav {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-around;
+        list-style: none;
+        padding: .5em 0em;
+        margin-top: 4em;
+        font-size: .8em;
+    }
+
+    .breadcrumb {
+        padding-bottom: 0;
+    }
+
+    .user-container {
+        margin: 1em auto;
+    }
+
+    .productPictureList {
+        width: 400%;
+        padding-right: .8em;
+    }
+}

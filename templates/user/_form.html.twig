@@ -1,0 +1,9 @@
+
+{# We just want to have the end of the form because we customized it#}
+{#{{ form_start(form) }}
+<main class="global-container" style="width: 40%" ;>
+	{{ form_widget(form) }}#}
+
+	<button class="btn btn-outline-primary">{{ button_label|default('Sauvegarder') }}</button>
+</main>
+{{ form_end(form) }}

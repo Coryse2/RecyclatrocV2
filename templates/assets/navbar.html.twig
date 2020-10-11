@@ -1,0 +1,65 @@
+<div class="navbar-container">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-fixed-top">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="{{ path('home') }}">Accueil</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarColor01">
+				<ul
+					class="navbar-nav mr-auto">
+
+					{#if connected user#}
+					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Recherche</a>
+    <div class="dropdown-menu" style="">
+       <a class="dropdown-item" href="{{ path ('search_categories') }}">Par catégorie</a>
+      <a class="dropdown-item" href="{{ path('search_cities') }}">Par ville</a>
+    </div>
+  </li>
+
+						<li class="nav-item active">
+							<a class="nav-link" href="{{ path('product_new') }}">Ajouter un produit</a>
+						</li>
+						{% if app.user %}
+							<li class="nav-item active">
+								<a class="nav-link" href="{{ path('user_show', {'id' : app.user.id }) }}">Accès au compte de
+									{{app.user.username | default('')}}</a>
+							</li>
+						{% endif %}
+						<li class="nav-item">
+							<a class="nav-link active" href="{{ path('logout') }}">Déconnexion</a>
+						</li>
+
+						{#End if connected user#}
+						{#Guest#}
+					{% else %}
+						<li class="nav-item">
+							<a class="nav-link active" href="{{ path('user_new') }}">Inscription</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="{{ path('app_login') }}">Connexion</a>
+						</li>
+					{% endif %}
+					{#End Guest#}
+
+					{#if connected admin#}
+					{% if is_granted('ROLE_ADMIN') %}
+						<li class="nav-item">
+							<a class="nav-link active" href="{{ path('easyadmin') }}">Espace Admin</a>
+						</li>
+					{% endif %}
+					{# End if connected admin #}
+
+				</ul>
+			</div>
+
+		<form class="form-inline my-2 my-lg-0" method="get" action=""{{ path('home') }}"">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit" name="q">Search</button>
+    </form>
+		</div>
+	</nav>
+</div>

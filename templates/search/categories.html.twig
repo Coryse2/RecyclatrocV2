@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recyclatroc - Recherche
+{% endblock %}
+
+{% block body %}
+	<main class="global-container">
+		<div class="card-header">
+			<h1 class="breadcrumb">Recherche d'un produit</h1>
+		</div>
+		<div class="searchFormContainer">
+			<div class="search-form-left">
+				{{ form_start(form) }}
+				{{ form(form) }}
+
+					{{ form_end(form) }}
+				</div>
+
+				<div class="search-form-right">
+					{% if app.request.method == 'POST' %}
+						{% if products|length == 0  %}
+							<div class="card border-primary mb-3">
+								<div class="card-header">
+									<h4>Resultat de la recherche :
+									</h4>
+								</div>
+
+								<ul class="formSearchList">
+									<li>Il n'y a pas de produit correspondant à votre recherche
+									</li>
+								</ul>
+							</div>
+
+						{% else %}
+
+							<div class="card border-primary mb-3">
+								<div class="card-header">
+									<h4>Resultat de la recherche :</h4>
+								</div>
+
+								<ul class="formSearchList">
+									{% for product in products %}
+
+										<li>
+											{{ product.name }}
+											à
+											{# if different cities print both #}
+											{% if  product.user.city == product.city %}
+												{{ product.user.city }}
+											{% elseif  product.city == null %}
+												{{ product.user.city }}
+											{% else %}
+												{{ product.user.city }}
+												ou
+												{{ product.city }}
+											{% endif %}
+											<a href="{{ path('product_show', {'id': product.id}) }}">Détail
+											</a>
+										</li>
+									{% endfor %}
+								</ul>
+							{% endif %}
+						</div>
+
+					{% endif %}
+				</div>
+					</div>
+<input type="button"  class="btn btn-outline-dark" value="Page précédente" onclick="history.go(-1)">
+</form>	
+</main>
+		
+		{% endblock %}

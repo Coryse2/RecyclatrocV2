@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recyclatroc -
+	{{ product.name }}
+{% endblock %}
+{% block body %}
+	<main class="global-container">
+		<div class="card-header">
+			<h1 class="breadcrumb">{{ product.name }}
+				pour
+				{{ product.category }}</h1>
+		</div>
+		{# cards #}
+		<div class="product-container">
+		<div class="leftProduct">
+				{% if product.picture  %}
+					<img src="{{ asset(product.picture) }}" height="200">
+				{% else %}
+					<img class="productPictureSolo" src="{{asset('images/imageDef.png')}}">
+				{% endif %}
+			</div>
+
+			<div class="rigthProduct">
+				<ul class="list-group list-group-flush">
+					<li class="product-text list-group-item">Nom de la pièce :
+						<strong>{{ product.name }}</strong>
+					</li>
+					<li class="list-group-item">Marque :
+						{{ product.brand.name }}</li>
+					<li class="list-group-item">Catégorie :
+						{{ product.category.name }}</li>
+					<li class="list-group-item">Référence :
+						{{ product.reference|default('non renseigné')}}</li>
+					<li class="list-group-item">Description :
+						{{ product.comment|default('non renseigné') }}</li>
+					<li class="list-group-item">
+						Lieu(x) :
+						{# if different cities print both #}
+						{% if  product.user.city == product.city %}
+							{{ product.user.city }}
+						{% elseif  product.city == null %}
+							{{ product.user.city }}
+						{% else %}
+							{{ product.user.city }}
+							ou
+							{{ product.city }}
+						{% endif %}
+					</li>
+					<li class="list-group-item">Annonce créée par :
+						{{ product.user.username }}
+					</li>
+					<div class="card-footer text-muted">
+						Annonce postée le :
+						{{ product.createdAt|date('d M yy ') }}
+					</div>
+				</ul>
+
+	{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+				{% if app.user == product.user  %}
+					<div class="button-container">
+						<a class="btn btn-outline-primary" href="{{ path('product_edit', {'id': product.id}) }}">Mettre à jour
+						</a>
+
+						{{ include('product/_delete_form.html.twig') }}
+						<a class="btn btn-outline-primary" href="{{ path('user_products', {'id': product.user.id}) }}">Liste de mes annonces
+						</a>
+					</div>
+				{% else %}
+			
+					<div class="button-container">
+						<a class="btn btn-outline-primary" href="{{ path('user_products', {'id': product.user.id}) }}">Liste des annonces de
+							{{product.user}}</a>
+
+						<a class="btn btn-outline-primary" href="{{ path( 'user_show', { 'id': product.user.id}) }}" class="card-link">Contacter</a>
+
+					</div>
+				{% endif %}
+	{% endif %}
+				<form>
+
+					<input type="button" class="btn btn-outline-dark" value="Page précédente" onclick="history.go(-1)">
+				</form>
+			</div>
+		</div>
+	</div>
+
+</main>{% endblock %}

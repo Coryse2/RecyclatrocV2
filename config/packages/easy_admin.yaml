@@ -1,0 +1,161 @@
+easy_admin:
+  site_name: '<h1>Bienvenue sur le  Back-Office du site <b style="color: #e95420;" >Recyclatroc</b></h1>'
+  design:
+    brand_color: "#e95420" 
+    menu:
+            - { label: 'retour au site', route: 'home', icon: 'undo-alt' }
+            - { entity: 'Brand', icon: 'trademark' }
+            - { entity: 'Category', icon: 'bars' }
+            - { entity: 'Product', icon: 'th-list' }
+            - { entity: 'User', icon: 'child' }
+    assets: 
+      css: 
+        - 'css/style.css'
+        - 'css/admin.css'
+
+  entities:
+    Brand:
+      class: App\Entity\Brand
+      label: 'Marques'
+      list:
+        fields:
+          - id
+          - {property: 'id', label: "Numéro d'identification ( ID )"}
+          - name
+          - {property: 'name', label: 'Nom de la marque'}
+          - products
+          - {property: 'products', label: 'Nombre de produits de la marque'}
+        filters: [{property: 'id', label: "Numéro d'identification ( ID )"},{property: 'name', label: 'Nom de la marque'},{property: 'products', label: 'Nombre de produits de la marque'} ]
+      
+      form: 
+        fields:
+          - {type: 'group', icon: 'pencil', label: 'Nom de la marque', css_class: "form-group"}
+          - name
+          - {property: 'name', label: 'Nom'}
+
+
+    Category:
+      class: App\Entity\Category
+      label: "Catégories"
+      list:
+        fields:
+          - id
+          - {property: 'id', label: "Numéro d'identification ( ID )"}
+          - name
+          - {property: 'name', label: 'Nom de la catégorie'}
+          - products
+          - {property: 'products', label: 'Nombre de produits dans la catégorie'}
+        filters: [{property: 'id', label: "Numéro d'identification ( ID )"},{property: 'name', label: 'Nom de la catégorie'},{property: 'products', label: 'Nombre de produits dans la catégorie'} ]
+        
+      form: 
+        fields:
+          - {type: 'group', icon: 'pencil', label: 'Nom de la catégorie', css_class: "form-group"}
+          - name
+          - {property: 'name', label: 'Nom'}
+            
+
+    Product:
+      class: App\Entity\Product
+      label: "Produits"
+      disabled_actions: ['new', 'edit']
+      list:
+        fields:
+          - id
+          - {property: 'id', label: "Numéro d'identification ( ID )"}
+          - name
+          - {property: 'name', label: 'Nom du produit'}
+          - reference
+          - {property: 'reference', label: 'référence du produit'}
+          - city
+          - {property: 'city', label: 'Lieu de réception du produit'}
+          - category
+          - {property: 'category', label: ' Catégorie du produit'}
+        filters: [{property: 'id', label: "Numéro d'identification ( ID )"},{property: 'name', label: 'Nom du produit'},{property: 'reference', label: 'Référence du produit'},{property: 'city', label: 'Lieu de réception du produit'},{property: 'category', label: 'Catégorie du produit'} ]
+
+      form: 
+        fields:
+          - {type: 'group', icon: 'pencil', label: 'Type de produit', css_class: "form-group col-sm-3"}
+          - name
+          - {property: 'name', label: 'Nom'}
+          - reference
+          - {property: 'reference', label: 'Référence'}
+          - category
+          - {property: 'category', label: 'Catégorie'}
+          - brand
+          - {property: 'brand', label: 'Marque'}
+          - city
+          - {property: 'city', label: 'Lieu'}
+          - user
+          - {property: 'user', label: ' Donnateur du produit'}
+          - {type: 'group', icon: 'pencil', label: 'Informations complémentaires', css_class: "form-group col-sm-9"}
+          - comment
+          - {property: 'comment', type: 'text_editor', label: 'Commentaires'}
+          - createdAt
+          - {property: 'createdAt',label: 'créé le'}
+          - updatedAt
+          - {property: 'updatedAt',label: 'modifié le'}
+
+          
+    User:
+      class: App\Entity\User
+      label: "Utilisateurs"
+      disabled_actions: ['new', 'edit']
+      list:
+        fields:
+          - id
+          - {property: 'id', label: "Numéro d'identification ( ID )"}
+          - username
+          - {property: 'username', label: 'Pseudonyme'}
+          - email
+          - {property: 'email', type: 'Email'}
+          - isActive
+          - {property: 'isActive', label: 'Utilisateur actif'}
+          - presentation
+          - {property: 'presentation', label: 'Présentation'}
+          - phone
+          - {property: 'phone', label: 'Numéro de téléphone', type: 'tel'}
+          - roles
+          - {property: 'roles', label: "Rôle de l'utilisateur"}
+        filters: [{property: 'id', label: "Numéro d'identification ( ID )"},{property: 'isActive', label: 'Utilisateur actif'},{property: 'phone', label: 'Numéro de téléphone'},{property: 'username', label: 'Pseudonyme'},{property: 'presentation', label: 'Présentation'},{property: 'roles', label: "Rôle de l'utilisateur"} ]
+
+      form: 
+        
+        fields:
+          - {type: 'group', icon: 'pencil', label: 'Informations', css_class: "form-group col-sm-3"}
+          - username
+          - {property: 'username', label: 'Nom'}
+          - id
+          - {property: 'id', label: "Numéro d'identification ( ID )"}
+          - email
+          - {property: 'email', type: 'email'}
+          - phone
+          - {property: 'phone', label: 'Numéro de téléphone', type: 'tel'}
+          - city
+          - {property: 'city', label: 'Lieu'}
+          - isActive
+          - {property: 'isActive', label: 'Utilisateur actif'}
+
+
+          - {type: 'group', icon: 'pencil', label: 'Présentation', css_class: "form-group col-sm-9"}
+          - roles
+          - {property: 'roles', label: "Rôle de l'utilisateur"}
+          - presentation
+          - {property: 'presentation', type: 'text_editor', label: "présentation de l'utilisateur"}
+          - createdAt
+          - {property: 'createdAt', label: 'Créé le'}
+          - updatedAt
+          - {property: 'updatedAt', label: 'Modifié le'}
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  

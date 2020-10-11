@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recyclatroc Contact
+{% endblock %}
+
+{% block body %}
+
+	<main class="global-container">
+		<div class="card-header">
+			<h1 class="breadcrumb">Contacter l'administrateur de Recyclatroc
+			</h1>
+		</div>
+		<div class="signin">
+		
+			{{ form_start(form) }}
+			{{ form_row(form.username) }}
+			<div class="sayHello">
+            {{ form_widget(form.email) }}
+			</div>
+			{{ form_row(form.information)}}
+			{{ form_row(form.subject) }}
+			{{ form_row(form.message) }}
+  
+			<div class="button-container">
+				<button type="submit" class="btn btn-outline-primary">Envoyer</button>
+			</div>
+			{{ form_end(form) }}
+	
+		<input type="button"  class="btn btn-outline-dark" value="Page précédente" onclick="history.go(-1)">
+      </div>  </form>
+	</main>
+{% endblock %}
