@@ -97,6 +97,11 @@ class User implements UserInterface
      */
     private $products;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isVerified = false;
+
     public function __construct()
     {
         $this->isActive = true;
@@ -360,6 +365,18 @@ class User implements UserInterface
     public function setCity($city)
     {
         $this->city = $city;
+
+        return $this;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
 
         return $this;
     }
