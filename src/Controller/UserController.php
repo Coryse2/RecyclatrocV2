@@ -51,7 +51,7 @@ class UserController extends AbstractController
 
             // flash message à la création d'un compte
             $this->addFlash('success', 'Votre compte a bien été créé');
-            
+
 
             // on utilise la méthode upload() et on stocke la valeur retournée (= le chemin du fichier)
             $imagePath = $fileUploadManager->upload($form['avatar'], $user->getId());
@@ -91,8 +91,8 @@ class UserController extends AbstractController
             $plainPassword = $user->getPassword();
             $encodedPassword = $encoder->encodePassword($user, $plainPassword);
             $user->setPassword($encodedPassword);
-           
-            
+
+
 
             // on utilise la méthode upload() et on stocke la valeur retournée (= le chemin du fichier)
             $imagePath = $fileUploadManager->upload($form['avatar'], $user->getId());
@@ -100,10 +100,10 @@ class UserController extends AbstractController
                 $user->setAvatar($imagePath);
             }
             $this->getDoctrine()->getManager()->flush();
-           
-            return $this->redirectToRoute('user_show',[
+
+            return $this->redirectToRoute('user_show', [
                 'id' => $user->getId(),
-            ] );
+            ]);
         }
 
         return $this->render('user/edit.html.twig', [
@@ -134,7 +134,7 @@ class UserController extends AbstractController
         return $this->redirectToRoute('home');
     }
 
-        /**
+    /**
      * @Route("/{id}/products", name="user_products", methods={"GET"})
      */
     public function userProduct(User $user): Response
