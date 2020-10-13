@@ -3,6 +3,8 @@
 {% block title %}Mot de passe oublié{% endblock %}
 
 {% block body %}
+<main class="global-container">
+		<div class="card-header">
     {% for flashError in app.flashes('reset_password_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
@@ -16,6 +18,9 @@
             </small>
         </div>
 
-        <button class="btn btn-primary">Envoyer un lien de renouvellement</button>
+        <button class="btn btn-primary" >Envoyer un lien de renouvellement</button>
     {{ form_end(requestForm) }}
+		</div>
+	</div>
+</main>
 {% endblock %}
