@@ -32,44 +32,6 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="user_new", methods={"GET","POST"})
-     */
-    public function new(Request $request, UserPasswordEncoderInterface $encoder, FileUploadManager $fileUploadManager): Response
-    {
-        $user = new User();
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $user->setRoles(['ROLE_USER']);
-            $plainPassword = $user->getPassword();
-            $encodedPassword = $encoder->encodePassword($user, $plainPassword);
-            $user->setPassword($encodedPassword);
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
-
-            // flash message à la création d'un compte
-            $this->addFlash('success', 'Votre compte a bien été créé');
-
-
-            // on utilise la méthode upload() et on stocke la valeur retournée (= le chemin du fichier)
-            $imagePath = $fileUploadManager->upload($form['avatar'], $user->getId());
-            // on utilise setImage()
-            $user->setAvatar($imagePath);
-            // on flush
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_login');
-        }
-
-        return $this->render('user/new.html.twig', [
-            'user' => $user,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
      * @Route("/{id}", name="user_show", methods={"GET"})
      */
     public function show(User $user): Response

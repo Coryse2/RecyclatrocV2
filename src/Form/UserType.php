@@ -23,23 +23,15 @@ class UserType extends AbstractType
         $builder
             ->add('username', null, [
                 'constraints' => new NotBlank,
-                'label' => 'Pseudonyme *',
+                'label' => 'Pseudonyme',
             ])
-
             ->add('email', EmailType::class, [
-                'label' => 'Email * ',
+                'label' => 'Email',
                 'constraints' => [
                     new Email,
                     new NotBlank,
                 ],
             ])
-            ->add('password', RepeatedType::class, [
-                'type' => PasswordType::class,
-                'invalid_message' => 'Le mot de passe doit être identique',
-                'first_options' => ['label' => 'Mot de passe *'],
-                'second_options' => ['label' => 'Confirmation du mot de passe *'],
-            ])
-
             ->add('avatar', FileType::class, [
                 'label' => 'Avatar',
                 'attr' => [
@@ -58,9 +50,8 @@ class UserType extends AbstractType
             ])
             ->add('city', null, [
                 'constraints' => new NotBlank,
-                'label' => 'Ville *',
+                'label' => 'Ville',
             ])
-
             ;
     }
     public function configureOptions(OptionsResolver $resolver)
