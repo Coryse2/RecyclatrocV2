@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Renouvellement du mot de passe{% endblock %}
+
+{% block body %}
+<main class="global-container">
+		<div class="card-header">
+    <p>Un email contenant le lien de renouvelement vous a été envoyé. Ce lien expirera dans {{ tokenLifetime|date('g') }} heure(s).</p>
+    <p>Si vous ne recevez pas d'email vérifiez vos spams. Si l'email n'y est pas, renouvelez l'opération <a href="{{ path('app_forgot_password_request') }}">Renvoyer</a>.</p>
+		</div>
+	</div>
+</main>
+{% endblock %}
