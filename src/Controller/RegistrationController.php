@@ -67,7 +67,6 @@ class RegistrationController extends AbstractController
                     ->to($user->getEmail())
                     ->subject('Validation de votre compte')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
-                    ->context()
             );
             // send an email to the user with a link to validate the account
             //After that the status is_verified will be 1 in the database 
