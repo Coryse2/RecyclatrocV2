@@ -31,7 +31,7 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/register", name="app_register")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $encoder, FileUploadManager $fileUploadManager, MailerInterface $mailer): Response
+    public function register(Request $request, UserPasswordEncoderInterface $encoder, FileUploadManager $fileUploadManager, MailerInterface $mailer, EmailVerifier $signatureComponents): Response
     {
         $user = new User();
         $form = $this->createForm(RegisterType::class, $user);
@@ -75,8 +75,8 @@ class RegistrationController extends AbstractController
                 ->to($user->getEmail())
                 ->subject('Validation de votre compte')
                 ->htmlTemplate('registration/confirmation_email.html.twig');
-
-            $mailer->send($email);
+           
+                $mailer->send($email);
             return $this->redirectToRoute('app_login');
         }
 

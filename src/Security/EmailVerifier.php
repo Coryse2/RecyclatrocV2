@@ -45,7 +45,7 @@ class EmailVerifier
      */
     public function handleEmailConfirmation(Request $request, UserInterface $user): void
     {
-        $this->verifyEmailHelper->validateEmailConfirmation($request->getUri(), $user->getId(), $user->getEmail());
+        $this->verifyEmailHelper->validateEmailConfirmation($context->getSignedUrl() , $request->getUri(), $user->getId(), $user->getEmail());
 
         $user->setIsVerified(true);
 
