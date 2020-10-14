@@ -65,11 +65,12 @@ class RegistrationController extends AbstractController
                 (new TemplatedEmail())
                     ->from(new Address('recyclatroc@gmail.com', 'RecyclAdmin'))
                     ->to($user->getEmail())
-                    ->subject('Please Confirm your Email')
+                    ->subject('Validation de votre compte')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
+                    ->context()
             );
             // send an email to the user with a link to validate the account
-            //After that the status is_verified will be 1 in the database
+            //After that the status is_verified will be 1 in the database 
             $email = (new TemplatedEmail())
                 ->from(new Address('recyclatroc@gmail.com', 'RecyclAdmin'))
                 ->to($user->getEmail())
