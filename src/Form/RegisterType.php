@@ -4,8 +4,6 @@ namespace App\Form;
 
 use App\Entity\User;
 use App\Entity\Location;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -64,10 +62,6 @@ class RegisterType extends AbstractType
             ])
             ->add('phone',null,  [
                 'label' => 'Numéro de téléphone'
-            ])
-            ->add('city', null, [
-                'constraints' => new NotBlank,
-                'label' => 'Ville *',
             ])
             ;
     }

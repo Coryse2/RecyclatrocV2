@@ -23,40 +23,29 @@
 								<h4>Resultat de la recherche :
 								</h4>
 							</div>
-
 							<ul class="formSearchList">
 								<li>Il n'y a pas de produit correspondant à votre recherche
 								</li>
-						</ul>
-					</div>
-				{% else %}
+							</ul>
+						</div>
+					{% else %}
 					<div class="card border-primary mb-3">
 						<div class="card-header">
 							<h4>Resultat de la recherche :
 							</h4>
 						</div>
 						<ul class="formSearchList">
-							{% for product in products %}
-								<li><img class="text-icon" src="{{ asset('images/location-pin.png') }}">{{ product.name }}
-									à
-									{# if different cities print both #}
-									{% if  product.user.city == product.city %}
-										{{ product.user.city }}
-									{% elseif  product.city == null %}
-										{{ product.user.city }}
-									{% else %}
-										{{ product.user.city }}
-										ou
-										{{ product.city }}
-									{% endif %}
+							{% for c in city %}
+								<li><img class="text-icon" src="{{ asset('images/location-pin.png') }}">
+										{{ product.c.name }}
 									<a href="{{ path('product_show', {'id': product.id}) }}">Détail
 									</a>
 								</li>
 							{% endfor %}
 						</ul>
-					{% endif %}
-				</div>
-			{% endif %}
+					</div>
+				{% endif %}
+				{% endif %}
 		</div>
 	</div>
 	
@@ -64,5 +53,5 @@
 </form>
 	<!-- load JS -->
 	<script src="https://cdn.jsdelivr.net/npm/places.js@1.17.1"></script>
-	<script src="{{ asset('js/algo.js') }}"></script>
+	<script src="{{ asset('js/.algo.js') }}"></script>
 </script></main>{% endblock %}

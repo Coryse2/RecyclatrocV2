@@ -13,8 +13,6 @@
 		<div class="signin">
 			{{ form_start(form) }}
 			{{ form_row(form.username) }}{{ form_row(form.email) }}
-			{{ form_row(form.city, {'id':'city', 'attr':{'class':'form-control'} }) }}
-			{#<input type="search" id="city" class="form-control" placeholder="Entrez votre ville ou votre code postal" />#}
 
 			{{ form_row(form.avatar) }}
 			{{ form_row(form.presentation) }}
@@ -30,9 +28,6 @@
 <input type="button"  class="btn btn-outline-dark" value="Page précédente" onclick="history.go(-1)">
 </form>
 		</div>
-		<!-- load JS -->
-		<script src="https://cdn.jsdelivr.net/npm/places.js@1.17.1"></script>
-		<script src="{{ asset('js/algo.js') }}"></script>
 	</main>
 
 

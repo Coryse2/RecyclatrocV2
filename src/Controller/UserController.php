@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Entity\Product;
+use App\Entity\Location;
 use App\Repository\UserRepository;
 use App\Service\FileUploadManager;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,10 +36,13 @@ class UserController extends AbstractController
     /**
      * @Route("/{id}", name="user_show", methods={"GET"})
      */
-    public function show(User $user): Response
+    public function show(User $user, Product $product, Location $location): Response
     {
         return $this->render('user/show.html.twig', [
             'user' => $user,
+            'product' => $product,
+            'location' => $location,
+            dump($location)
         ]);
     }
 

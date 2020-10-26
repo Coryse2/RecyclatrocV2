@@ -85,12 +85,6 @@ class User implements UserInterface
      */
     private $updatedAt;
 
-    /**
-     *
-     * @ORM\Column(type="string", length=255,nullable=true)
-     */
-    private $city;
-
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Product", mappedBy="user", orphanRemoval=true)
@@ -348,26 +342,6 @@ class User implements UserInterface
     }
 
 
-
-    /**
-     * Get the value of location
-     */ 
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * Set the value of location
-     *
-     * @return  self
-     */ 
-    public function setCity($city)
-    {
-        $this->city = $city;
-
-        return $this;
-    }
 
     public function isVerified(): bool
     {

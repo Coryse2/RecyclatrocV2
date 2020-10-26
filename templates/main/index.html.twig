@@ -84,15 +84,9 @@
 								<li class="list-group-item">
 									Lieu(x) :
 									{# if different cities print both #}
-									{% if  product.user.city == product.city %}
-										{{ product.user.city }}
-									{% elseif  product.city == null %}
-										{{ product.user.city }}
-									{% else %}
-										{{ product.user.city }}
-										ou
-										{{ product.city }}
-									{% endif %}
+										{% for location in product.location %}
+										{{ location.city }} -  
+										{% endfor %}
 								</li>
 							</ul>
 							<div class="card-body">
@@ -108,6 +102,7 @@
 			{% endfor %}
 		{% endif %}
 		{# END cards#}
+
 	</ul>
 	<a class="btn btn-outline-dark" href="#top">Haut de page</a>
 	<input type="button"  class="btn btn-outline-dark" value="Page précédente" onclick="history.go(-1)">

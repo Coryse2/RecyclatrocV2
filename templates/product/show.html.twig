@@ -34,17 +34,10 @@
 					<li class="list-group-item">Description :
 						{{ product.comment|default('non renseigné') }}</li>
 					<li class="list-group-item">
-						Lieu(x) :
-						{# if different cities print both #}
-						{% if  product.user.city == product.city %}
-							{{ product.user.city }}
-						{% elseif  product.city == null %}
-							{{ product.user.city }}
-						{% else %}
-							{{ product.user.city }}
-							ou
-							{{ product.city }}
-						{% endif %}
+						Lieu(x) :<p class="text-info">
+						{% for location in product.location %}
+						{{ location.city }} -  
+						{% endfor %}	</p>
 					</li>
 					<li class="list-group-item">Annonce créée par :
 						{{ product.user.username }}

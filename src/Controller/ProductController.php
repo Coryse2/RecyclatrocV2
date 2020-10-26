@@ -2,17 +2,18 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
+use App\Entity\City;
 use App\Entity\Product;
+use App\Entity\Location;
 use App\Form\ProductType;
-use App\Repository\UserRepository;
-use App\Repository\ProductRepository;
+use App\Repository\CityRepository;
 use App\Service\ProductUploadManager;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
  * @Route("/product")
@@ -37,15 +38,38 @@ class ProductController extends AbstractController
     public function new(Request $request, ProductUploadManager $productUploadManager): Response
     {
         $product = new Product();
-       
         $form = $this->createForm(ProductType::class, $product);
 
-        $form->handleRequest($request);
+        $location= new Location();
+        $location->setCity('Paris');
+        $product->addLocation($location);
+        // save the records that are in the database first to compare them with the new one the user sent
+        // make sure this line comes before the $form->handleRequest();
+        $orignalLocation = new ArrayCollection();
+        foreach ($product->getLocation() as $location) {
+            $orignalLocation->add($location);
+        }
+
+        
         $id = $this->getUser()->getId();
+
+       $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
 
             // On associe le user connecté à l'annonce
             $product->setUser($this->getUser($id));
+
+
+            // get rid of the ones that the product got rid of in the interface (DOM)
+            foreach ($orignalLocation as $location) {
+                // check if the loction is in the $product->getLocation()
+//                dump($product->getLocation()->contains($location));
+                if ($product->getLocation()->contains($location) === false) {
+                    $product->removeLocation($location);
+                }
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($product);
             $entityManager->flush();
@@ -61,20 +85,24 @@ class ProductController extends AbstractController
                 'id' => $product->getId(),
             ]);
         }
-
         return $this->render('product/new.html.twig', [
             'product' => $product,
+            'location'=> $location,   
             'form' => $form->createView(),
         ]);
+        
     }
 
     /**
      * @Route("/{id}", name="product_show", methods={"GET"})
      */
-    public function show(Product $product): Response
-    {
+    public function show(Product $product, Location $location): Response
+    {   
+        $product->getLocation()->contains($location);
         return $this->render('product/show.html.twig', [
             'product' => $product,
+            'location'=>$location,
+            dump($product)
         ]);
     }
 

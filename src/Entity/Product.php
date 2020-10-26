@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
-use App\Entity\User;
 use DateTime;
+use App\Entity\City;
+use App\Entity\User;
+use App\Entity\Location;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -65,25 +67,27 @@ class Product
     private $brand;
 
     /**
-     *
-     * @ORM\Column(type="string", length=255,nullable=true)
-     */
-    private $city;
-
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
+
+ 
+   
+    /**
+     * @ORM\OneToMany(targetEntity="Location", mappedBy="product", cascade={"persist"})
+     */
+    private $location;
+
 
 
     public function __construct()
     {
         $this->createdAt = new DateTime();
         $this->user = new ArrayCollection();
-     
+        $this->location = new ArrayCollection();   
     }
+
     public function __toString()
     {
         return $this->name;
@@ -211,23 +215,42 @@ class Product
         return $this;
     }
 
+ 
     /**
-     * Get the value of city
-     */ 
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * Set the value of city
+     * Add location
      *
-     * @return  self
-     */ 
-    public function setCity($city)
+     * @param \App\Entity\Location $location
+     *
+     * @return Product
+     */
+    public function addLocation(Location $location)
     {
-        $this->city = $city;
-
+        $this->location[] = $location;
+      // setting the current product to the $location,
+        // adapt this to whatever you are trying to achieve
+       $location->setProduct($this);
         return $this;
     }
+ 
+    
+    /**
+     * Remove location
+     *
+    * @param \AppBundle\Entity\Location $location
+     */
+    public function removeLocation(Location $location)
+    {
+        $this->location->removeElement($location);
+    }
+ 
+    /**
+     * Get location
+     *
+     * @return \Doctrine\Common\Collections\Collection
+    */
+    public function getLocation()
+    {
+        return $this->location;
+    } 
+
 }
