@@ -35,11 +35,6 @@
 						<li class="list-group-item">Téléphone:
 							{{ user.phone|default('non renseigné') }}</li>
 					</li>
-					<li class="list-group-item">Lieu (x):
-						{% for product in user.products %}
-						{{ location.city }}
-						{% endfor %}
-					</li>
 				</li>
 				<div class="card-footer text-muted">
 					Inscrit(e) depuis le :

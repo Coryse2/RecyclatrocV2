@@ -2,11 +2,8 @@
 
 namespace App\Controller;
 
-
-use App\Form\CityType;
-use App\Form\LocationType;
 use App\Form\CategorySearchType;
-use App\Repository\UserRepository;
+use App\Form\LocationSearchType;
 use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,12 +19,12 @@ class SearchController extends AbstractController
     {
 
         $products = [];
-        $formSearchProduct = $this->createForm(LocationType::class);
+        $formSearchProduct = $this->createForm(LocationSearchType::class);
         $formSearchProduct->handleRequest($request);
         if ($formSearchProduct->isSubmitted() && $formSearchProduct->isValid())
         {
             $critere = $formSearchProduct->getData();
-            $products = $productRepository->searchLocation($request->request->get('product_search'));
+            $products = $productRepository->searchByCity($request->request->get('product_search'));
         }
 
         return $this->render('search/cities.html.twig', [

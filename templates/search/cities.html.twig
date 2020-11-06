@@ -35,13 +35,14 @@
 							</h4>
 						</div>
 						<ul class="formSearchList">
-							{% for c in city %}
-								<li><img class="text-icon" src="{{ asset('images/location-pin.png') }}">
-										{{ product.c.name }}
-									<a href="{{ path('product_show', {'id': product.id}) }}">Détail
+							{% for location in product.location %}
+							<li><img class="text-icon" src="{{ asset('images/location-pin.png') }}">
+							{{ location.city }} -  
+							{% endfor %}
+							<a href="{{ path('product_show', {'id': product.id}) }}">Détail
 									</a>
 								</li>
-							{% endfor %}
+						
 						</ul>
 					</div>
 				{% endif %}

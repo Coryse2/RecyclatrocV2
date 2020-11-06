@@ -17,17 +17,14 @@
 			{{ form_row(form.comment) }}
 			{{ form_row(form.category) }}
 			{{ form_row(form.brand) }}
+		
 				{# render each row and field in the embedded form, in this example it's rendering the experience (Location) fields as rows #}
-				<div class="col-sm-8 col-sm-offset-2" id="location_list" data-prototype="{{ form_widget(form.location.vars.prototype)|e('html_attr') }}">
-						{% for row in form.location %}
-							<div class="panel panel-warning">
-								<div class="panel-heading">
-									<strong>{{ row.vars.value.city}}</strong>
-								</div>
-								<div class="panel-body">
-									{{ form_row(row , {'id':'city', 'attr':{'class':'form-control'} }) }}
-								</div>
-						</div>
+				<div class="col-sm-15 col-sm-offset-2" id="location_list" data-prototype="{{ form_widget(form.location.vars.prototype)|e('html_attr') }}">
+						{% for city in form.location %}
+							<div >
+								<strong>{{ row.vars.value.city}}</strong>		
+								 {{ form_row(form.city)  }}
+							</div>
 						{% endfor %}
 				</div>
    		
@@ -39,13 +36,15 @@
 </form>
 	
 					<!-- load JS -->
-	<script src="https://cdn.jsdelivr.net/npm/places.js@1.17.1"></script>
-	<script src="{{ asset('js/.algo.js') }}"></script>
+
 	<script    src="https://code.jquery.com/jquery-2.2.4.min.js"
              integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
              crossorigin="anonymous"></script>
-	<script src="{{ asset('js/formCollection.js') }}"></script>
-</script></main>
+	<script src="{{ asset('js/formCollection.js') }}">
+	</script>	
+	<script src="https://cdn.jsdelivr.net/npm/places.js@1.17.1"></script>
+	<script src="{{ asset('js/.algo.js') }}"></script>
+</main>
 		
 			</div>
 		{% endblock %}

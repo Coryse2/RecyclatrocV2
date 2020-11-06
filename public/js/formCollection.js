@@ -1,6 +1,6 @@
 // this variable is the list in the dom, it's initiliazed when the document is ready
 var $collectionHolder;
-// the link which we click on to add new items
+// the link which we click on to add new items = the button
 var $addNewItem = $('<a href="#" class="btn btn-info">Ajouter un lieu de retrait</a>');
 // when the page is loaded and ready
 $(document).ready(function () {
@@ -29,10 +29,13 @@ $(document).ready(function () {
         addNewForm();
     })
 });
+
+ 
 /*
  * creates a new form and appends it to the collectionHolder
  */
 function addNewForm() {
+
     // getting the prototype
     // the prototype is the form itself, plain html
     var prototype = $collectionHolder.data('prototype');
@@ -42,16 +45,18 @@ function addNewForm() {
     // create the form
     var newForm = prototype;
     // replace the __name__ string in the html using a regular expression with the index value
-    newForm = newForm.replace(/__name__/g, index);
+    newForm = newForm.replace(/__name__/g, index)
     // incrementing the index data and setting it again to the collectionHolder
     $collectionHolder.data('index', index+1);
     // create the panel
     // this is the panel that will be appending to the collectionHolder
     var $panel = $('<div class="panel panel-warning"><div class="panel-heading"></div></div>');
     // create the panel-body and append the form to it
-    var $panelBody = $('<div class="panel-body"></div>').append(newForm);
+    var $panelBody = $('<div class="panel-body"></div>').append(newForm)
+ 
     // append the body to the panel
     $panel.append($panelBody);
+    
     // append the removebutton to the new panel
     addRemoveButton($panel);
     // append the panel to the addNewItem
@@ -80,3 +85,5 @@ function addRemoveButton ($panel) {
     // append the footer to the panel
     $panel.append($panelFooter);
 }
+
+

@@ -75,7 +75,7 @@ class Product
  
    
     /**
-     * @ORM\OneToMany(targetEntity="Location", mappedBy="product", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Location", mappedBy="product", cascade={"persist"}, orphanRemoval=true)
      */
     private $location;
 

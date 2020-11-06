@@ -3,7 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Product;
-use App\Entity\User;
+use App\Entity\Location;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
@@ -42,19 +42,6 @@ class ProductRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function searchLocation($critere)
-    {
-        return $this->createQueryBuilder('p')
-            //->Where('p.category = :category')
-           // ->andWhere('p.brand = :brand')
-            ->Where('p.location = :location')
-            //->setParameter('category', $critere['category'])
-            //->setParameter('brand', $critere['brand'])
-            ->setParameter('location', $critere['location'])
-            ->getQuery()
-            ->getResult();
-    }
-
     public function searchCategory($critere)
     {
         return $this->createQueryBuilder('p')
@@ -64,15 +51,14 @@ class ProductRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    /*
-    public function findOneBySomeField($value): ?Product
+    public function searchByCity($critere)
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
+            ->Where('p.location = :location')
+            ->setParameter('location', $critere['location'])
             ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->getResult();
     }
-    */
+
+
 }

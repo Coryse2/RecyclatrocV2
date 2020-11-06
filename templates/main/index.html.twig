@@ -85,7 +85,7 @@
 									Lieu(x) :
 									{# if different cities print both #}
 										{% for location in product.location %}
-										{{ location.city }} -  
+										{{ location.city|default('non renseigné') }}  
 										{% endfor %}
 								</li>
 							</ul>

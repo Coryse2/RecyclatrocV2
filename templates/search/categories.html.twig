@@ -44,16 +44,9 @@
 										<li>
 											{{ product.name }}
 											à
-											{# if different cities print both #}
-											{% if  product.user.city == product.city %}
-												{{ product.user.city }}
-											{% elseif  product.city == null %}
-												{{ product.user.city }}
-											{% else %}
-												{{ product.user.city }}
-												ou
-												{{ product.city }}
-											{% endif %}
+											{% for location in product.location %}
+											{{ location.city }} -  
+											{% endfor %}
 											<a href="{{ path('product_show', {'id': product.id}) }}">Détail
 											</a>
 										</li>

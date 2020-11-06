@@ -42,7 +42,7 @@ class ProductType extends AbstractType
             ->add('brand',null, [
                 'label' => 'Marque *',
             ]) 
-            ->add('location', CollectionType::class, [   
+            ->add('location', CollectionType::class, [ 
                 'label' => false, 
                 'entry_type' => LocationType::class,
                 //I don't want a label so it will be false

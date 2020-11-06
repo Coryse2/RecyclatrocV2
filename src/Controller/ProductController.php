@@ -2,11 +2,10 @@
 
 namespace App\Controller;
 
-use App\Entity\City;
+
 use App\Entity\Product;
 use App\Entity\Location;
 use App\Form\ProductType;
-use App\Repository\CityRepository;
 use App\Service\ProductUploadManager;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -64,7 +63,6 @@ class ProductController extends AbstractController
             // get rid of the ones that the product got rid of in the interface (DOM)
             foreach ($orignalLocation as $location) {
                 // check if the loction is in the $product->getLocation()
-//                dump($product->getLocation()->contains($location));
                 if ($product->getLocation()->contains($location) === false) {
                     $product->removeLocation($location);
                 }
@@ -83,7 +81,7 @@ class ProductController extends AbstractController
 
             return $this->redirectToRoute('product_show', [ 
                 'id' => $product->getId(),
-            ]);
+            ]); dump($product);
         }
         return $this->render('product/new.html.twig', [
             'product' => $product,
