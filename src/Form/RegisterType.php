@@ -65,10 +65,6 @@ class RegisterType extends AbstractType
             ->add('phone',null,  [
                 'label' => 'Numéro de téléphone'
             ])
-            ->add('city', null, [
-                'constraints' => new NotBlank,
-                'label' => 'Ville *',
-            ])
             ;
     }
 

@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Form\ProductSearchType;
+use App\Form\CitySearchType;
 use App\Form\CategorySearchType;
 use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,7 +19,7 @@ class SearchController extends AbstractController
     {
 
         $products = [];
-        $formSearchProduct = $this->createForm(ProductSearchType::class);
+        $formSearchProduct = $this->createForm(CitySearchType::class);
         $formSearchProduct->handleRequest($request);
         if ($formSearchProduct->isSubmitted() && $formSearchProduct->isValid())
         {

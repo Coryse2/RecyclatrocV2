@@ -13,8 +13,9 @@
 			{{ form_start(form) }}
 			{{ form_row(form.name) }}
 			{{ form_row(form.reference) }}
+			{#For the two following fom rows the id is personalised in order to call Algolia Places #}
 			{{ form_row(form.city, {'id':'city', 'attr':{'class':'form-control'} }) }}
-			{#<input type="search" id="city" class="form-control" placeholder="Entrez votre ville ou votre code postal" />#}
+			{{ form_row(form.city2, {'id':'city2', 'attr':{'class':'form-control'} }) }}
 			{{ form_row(form.picture) }}
 			{{ form_row(form.comment) }}
 			{{ form_row(form.category) }}

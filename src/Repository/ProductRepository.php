@@ -44,12 +44,9 @@ class ProductRepository extends ServiceEntityRepository
     public function searchCity($critere)
     {
         return $this->createQueryBuilder('p')
-            //->Where('p.category = :category')
-           // ->andWhere('p.brand = :brand')
             ->Where('p.city = :city')
-            //->setParameter('category', $critere['category'])
-            //->setParameter('brand', $critere['brand'])
-            ->setParameter('city', $critere['city'])
+            ->orWhere('p.city2 = :city')
+            ->setParameter('city', $critere)
             ->getQuery()
             ->getResult();
     }
@@ -63,15 +60,4 @@ class ProductRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    /*
-    public function findOneBySomeField($value): ?Product
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

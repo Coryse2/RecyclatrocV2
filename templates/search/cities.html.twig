@@ -17,7 +17,7 @@
 
 			<div class="search-form-right">
 				{% if app.request.method == 'POST' %}
-					{% if products|length == 0  %}
+					{% if products|length is same as 0  %}
 						<div class="card border-primary mb-3">
 							<div class="card-header">
 								<h4>Resultat de la recherche :
@@ -37,18 +37,12 @@
 						</div>
 						<ul class="formSearchList">
 							{% for product in products %}
-								<li><img class="text-icon" src="{{ asset('images/location-pin.png') }}">{{ product.name }}
-									à
-									{# if different cities print both #}
-									{% if  product.user.city == product.city %}
-										{{ product.user.city }}
-									{% elseif  product.city == null %}
-										{{ product.user.city }}
-									{% else %}
-										{{ product.user.city }}
-										ou
-										{{ product.city }}
-									{% endif %}
+								<li><img class="text-icon" src="{{ asset('images/location-pin.png') }}">
+								{{ product.name }}
+								à
+								{{ product.city }} 
+								{{ product.city2 }} 
+									
 									<a href="{{ path('product_show', {'id': product.id}) }}">Détail
 									</a>
 								</li>
@@ -64,5 +58,5 @@
 </form>
 	<!-- load JS -->
 	<script src="https://cdn.jsdelivr.net/npm/places.js@1.17.1"></script>
-	<script src="{{ asset('js/algo.js') }}"></script>
+	<script src="{{ asset('js/.algo.js') }}"></script>
 </script></main>{% endblock %}

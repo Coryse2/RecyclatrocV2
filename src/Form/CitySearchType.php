@@ -8,14 +8,14 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ProductSearchType extends AbstractType
+class CitySearchType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder,  array $options)
     {
         $builder
             ->add('city',null, [
                 'label' => 'Ville',
-            ]) 
+            ])  
             ->add('Recherche', SubmitType::class)
         ;
     }
