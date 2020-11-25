@@ -36,7 +36,10 @@ class ProductType extends AbstractType
             ->add('brand',null, [
                 'label' => 'Marque *',
             ])
-            ->add('city',null,[
+            ->add('city',null, [
+                'label' => 'Lieu de retrait *',
+            ])
+            ->add('city2',null,[
                 'label' => 'Optionnel - Ajoutez un autre lieu de retrait '])
         ;
     }

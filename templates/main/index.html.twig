@@ -84,14 +84,12 @@
 								<li class="list-group-item">
 									Lieu(x) :
 									{# if different cities print both #}
-									{% if  product.user.city == product.city %}
-										{{ product.user.city }}
-									{% elseif  product.city == null %}
-										{{ product.user.city }}
-									{% else %}
-										{{ product.user.city }}
-										ou
+									{% if  product.city2 == null %}
 										{{ product.city }}
+									{% else %}
+										{{ product.city }}
+										ou
+										{{ product.city2 }}
 									{% endif %}
 								</li>
 							</ul>

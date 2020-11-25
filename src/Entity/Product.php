@@ -66,9 +66,16 @@ class Product
 
     /**
      *
-     * @ORM\Column(type="string", length=255,nullable=true)
+     * @ORM\Column(type="string", length=255,nullable=false)
      */
     private $city;
+
+    /**
+     *
+     * @ORM\Column(type="string", length=255,nullable=true)
+     */
+    private $city2;
+
 
 
     /**
@@ -82,6 +89,8 @@ class Product
     {
         $this->createdAt = new DateTime();
         $this->user = new ArrayCollection();
+        $this->city = new ArrayCollection();
+        $this->city2 = new ArrayCollection();
      
     }
     public function __toString()
@@ -227,6 +236,26 @@ class Product
     public function setCity($city)
     {
         $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of city2
+     */ 
+    public function getCity2()
+    {
+        return $this->city2;
+    }
+
+    /**
+     * Set the value of city2
+     *
+     * @return  self
+     */ 
+    public function setCity2($city2)
+    {
+        $this->city2 = $city2;
 
         return $this;
     }
