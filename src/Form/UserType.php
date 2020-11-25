@@ -47,12 +47,7 @@ class UserType extends AbstractType
 
             ->add('phone',null,  [
                 'label' => 'Numéro de téléphone'
-            ])
-            ->add('city', null, [
-                'constraints' => new NotBlank,
-                'label' => 'Ville',
-            ])
-            ;
+            ]);
     }
     public function configureOptions(OptionsResolver $resolver)
     {

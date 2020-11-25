@@ -51,11 +51,11 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            // on utilise la méthode upload() et on stocke la valeur retournée (= le chemin du fichier)
+            // use the upload(method) and store the returned value (=the file path)
             $imagePath = $fileUploadManager->upload($form['avatar'], $user->getId());
-            // on utilise setImage()
+            // use setImage()
             $user->setAvatar($imagePath);
-            // on flush
+            // and flush
             $entityManager->flush();
 
             // generate a signed url and email it to the user
@@ -102,7 +102,7 @@ class RegistrationController extends AbstractController
             return $this->redirectToRoute('app_register');
         }
 
-        $this->addFlash('success', 'Your email address has been verified.');
+        $this->addFlash('success', 'Votre adresse email a bien été vérifiée.');
 
         return $this->redirectToRoute('app_login');
     }
