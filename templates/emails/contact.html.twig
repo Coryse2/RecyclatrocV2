@@ -1,18 +1,18 @@
 {#if the field email is empty it means the form has been filled by an human, 
 if not it has been filled by a bot#}
 {% if contact.email is empty %}
-<h1>Nouvel email de {{contact.username}} </h1>
-<p>Email: {{contact.information}}</p>
-<p>Sujet: {{contact.subject}}</p>
-<p>Message : {{contact.message|raw}}</p>
+    <h1>Nouvel email de {{contact.username}} </h1>
+    <p>Email: {{contact.information}}</p>
+    <p>Sujet: {{contact.subject}}</p>
+    <p>Message : {{contact.message|raw}}</p>
 {# |raw is used for the layout#}
 {% else %}
-<h1> SPAM detected</h1>
-<p>Honeypot:🐛 {{contact.email}}</p>
-<p>Email: {{contact.information}}</p>
+    <h1> SPAM detected</h1>
+    <p>Honeypot:🐛 {{contact.email}}</p>
+    <p>Email: {{contact.information}}</p>
 {# for now I let the message to permit a human check, 
 some screen reader can detect the hidden field and can  ask a person to fill the field#}
-<p>Sujet: SPAM {{contact.subject}}</p>
-<p>Message : {{contact.message|raw}}</p>
+    <p>Sujet: SPAM {{contact.subject}}</p>
+    <p>Message : {{contact.message|raw}}</p>
 {% endif %}
 

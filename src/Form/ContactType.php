@@ -49,7 +49,7 @@ class ContactType extends AbstractType
                 'constraints' => [
                     new NotBlank,
                 ],
-                'label' => 'Message *',
+                'label' => 'Message * (25 caractères minimum)',
             ])
  
             ;
