@@ -50,7 +50,7 @@ class ContactController extends AbstractController
                 );
             //sending the message
             $mailer->send($message);
-            $this->addFlash('success', 'Votre email a bien été envoyé');
+            $this->addFlash('success', 'Votre email a bien été envoyé. Nous y répondrons dans un délai de 48 heures');
             return $this->redirectToRoute('home');
         }
 

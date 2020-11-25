@@ -10,8 +10,26 @@
 			<h1 class="breadcrumb">Contacter l'administrateur de Recyclatroc
 			</h1>
 		</div>
-		<div class="signin">
+<div
+			class="card-body">
+	<div class="form-container">
+
+	
+		<div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+  			<div class="toast-header">
+    			<strong class="mr-auto">Téléphone</strong>
+    			<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+     			 <span aria-hidden="true">&times;</span>
+   				</button>
+ 			</div>
+  		<div class="toast-body">
+  		  Envie de nous contacter autrement? Vous pouvez nous joindre au 06 06 06 06 06
+  		</div>
+	</div>
+
 		
+		<div class="signin">
+   			<p>Les champs signalés par un astérisque sont <em>obligatoires</em></p>
 			{{ form_start(form) }}
 			{{ form_row(form.username) }}
 			<div class="sayHello">
@@ -20,13 +38,15 @@
 			{{ form_row(form.information)}}
 			{{ form_row(form.subject) }}
 			{{ form_row(form.message) }}
-  
-			<div class="button-container">
+
+		<div class="button-container">
 				<button type="submit" class="btn btn-outline-primary">Envoyer</button>
-			</div>
+		</div>
 			{{ form_end(form) }}
+		</div>		
+</div>
 	
 		<input type="button"  class="btn btn-outline-dark" value="Page précédente" onclick="history.go(-1)">
-      </div>  </form>
+     </form>
 	</main>
 {% endblock %}
