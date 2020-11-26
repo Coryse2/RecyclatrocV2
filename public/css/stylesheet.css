@@ -45,15 +45,6 @@ nav {
     width: 100%;
 }
 
-.carousel-inner {
-    width: 100%;
-}
-
-.carousel-item {
-    background-image: url(../images/board-bright.jpg);
-    opacity: .8;
-}
-
 .d-block {
     margin: 1em auto .5em auto;
 }
@@ -75,6 +66,11 @@ nav {
 
 .signin-form {
     margin: 1em auto;
+}
+
+/*Password warning*/
+.alert>p{
+    color:black;
 }
 
 .leftProduct,
