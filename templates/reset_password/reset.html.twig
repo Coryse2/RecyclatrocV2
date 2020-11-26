@@ -6,7 +6,10 @@
 <main class="global-container">
 		<div class="card-header">
     <h1>Renouvelez votre mot de passe</h1>
-
+	  <div class="alert alert-dismissible alert-warning">
+  		<h4 class="alert-heading">Attention!</h4>
+ 		 <p>Pour des raisons de sécurité votre mot de passe doit comporter au moins 8 caractères dont : un caractère spécial, des lettres minuscules et  majuscules ainsi qu'un chiffre.</p>
+		
     {{ form_start(resetForm) }}
         {{ form_row(resetForm.plainPassword) }}
         <button class="btn btn-primary">Renouvellement du mot de passe</button>
