@@ -37,7 +37,7 @@ class ProductType extends AbstractType
                 'label' => 'Marque *',
             ])
             ->add('city',null, [
-                'label' => 'Lieu de retrait *',
+                'label' => 'Lieu de retrait * - Saisissez le nom de la ville, Ne saisissez pas un code postal ni votre arrondissement ',
             ])
             ->add('city2',null,[
                 'label' => 'Optionnel - Ajoutez un autre lieu de retrait '])

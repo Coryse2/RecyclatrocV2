@@ -2,10 +2,10 @@
 
 namespace App\Entity;
 
-use App\Entity\User;
 use DateTime;
+use App\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -67,6 +67,10 @@ class Product
     /**
      *
      * @ORM\Column(type="string", length=255,nullable=false)
+     * @Assert\Regex(
+     * pattern="/^(?=.*[a-zA-Z])$/",
+     * match=true,
+     * message="Vous devez saisir un nom de ville proposé dans la liste.")
      */
     private $city;
 
