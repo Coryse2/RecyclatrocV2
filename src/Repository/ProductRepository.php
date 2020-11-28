@@ -50,7 +50,6 @@ class ProductRepository extends ServiceEntityRepository
             ->setParameter('critere', $critere)
             ;
         }
-
         return $q
             ->getQuery()
             ->getResult();

@@ -83,7 +83,13 @@
 									{{ product.category.name }}</li>
 								<li class="list-group-item">
 									Lieu(x) :
+										{% if  product.city2 == null %}
 										{{ product.city }}
+									{% else %}
+										{{ product.city }}
+										ou
+										{{ product.city2 }}
+									{% endif %}
 								</li>
 							</ul>
 							<div class="card-body">

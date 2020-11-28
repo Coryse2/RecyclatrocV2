@@ -34,8 +34,13 @@
 					<li class="list-group-item">Description :
 						{{ product.comment|default('non renseigné') }}</li>
 					<li class="list-group-item">
-						Lieu(x) :	{{ product.city }} ou 
-						{{ product.city2 }}
+						Lieu(x) :	{% if  product.city2 == null %}
+										{{ product.city }}
+									{% else %}
+										{{ product.city }}
+										ou
+										{{ product.city2 }}
+									{% endif %}
 					</li>
 					
 					<li class="list-group-item">Annonce créée par :
