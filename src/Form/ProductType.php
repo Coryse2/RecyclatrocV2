@@ -39,8 +39,9 @@ class ProductType extends AbstractType
             ->add('city',null, [
                 'label' => 'Lieu de retrait * - Saisissez le nom de la ville, Ne saisissez pas un code postal ni votre arrondissement ',
             ])
-            ->add('city2',null,[
-                'label' => 'Optionnel - Ajoutez un autre lieu de retrait '])
+            ->add('city2',null, [
+                'label' => 'Ajoutez un autre lieu de retrait possible (optionnel)',
+            ])
         ;
     }
 
