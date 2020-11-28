@@ -2,7 +2,7 @@
 /.env.local
 /.env.local.php
 /.env.*.local
-/public/js/.algo.js
+/public/js/
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
