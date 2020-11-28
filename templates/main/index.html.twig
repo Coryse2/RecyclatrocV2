@@ -83,8 +83,7 @@
 									{{ product.category.name }}</li>
 								<li class="list-group-item">
 									Lieu(x) :
-									{# if different cities print both #}
-									{% if  product.city2 == null %}
+										{% if  product.city2 == null %}
 										{{ product.city }}
 									{% else %}
 										{{ product.city }}

@@ -17,7 +17,7 @@
 
 			<div class="search-form-right">
 				{% if app.request.method == 'POST' %}
-					{% if products|length == 0  %}
+					{#{% if products|length == 0  %}
 						<div class="card border-primary mb-3">
 							<div class="card-header">
 								<h4>Resultat de la recherche :
@@ -29,26 +29,25 @@
 								</li>
 						</ul>
 					</div>
-				{% else %}
+				{% else %}#}
 					<div class="card border-primary mb-3">
 						<div class="card-header">
 							<h4>Resultat de la recherche :
 							</h4>
 						</div>
 						<ul class="formSearchList">
+					
 							{% for product in products %}
 								<li><img class="text-icon" src="{{ asset('images/location-pin.png') }}">
 								{{ product.name }}
 								à
 								{{ product.city }} 
-								{{ product.city2 }} 
-									
 									<a href="{{ path('product_show', {'id': product.id}) }}">Détail
 									</a>
 								</li>
 							{% endfor %}
 						</ul>
-					{% endif %}
+					
 				</div>
 			{% endif %}
 		</div>

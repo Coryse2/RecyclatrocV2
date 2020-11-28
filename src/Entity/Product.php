@@ -67,20 +67,9 @@ class Product
     /**
      *
      * @ORM\Column(type="string", length=255,nullable=false)
-     * @Assert\Regex(
-     * pattern="/^(?=.*[a-zA-Z])$/",
-     * match=true,
-     * message="Vous devez saisir un nom de ville proposé dans la liste.")
+     * @Assert\Regex("/^([a-zA-Z]+)$/")
      */
     private $city;
-
-    /**
-     *
-     * @ORM\Column(type="string", length=255,nullable=true)
-     */
-    private $city2;
-
-
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="products")
@@ -88,18 +77,22 @@ class Product
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Regex("/^([a-zA-Z]+)$/")
+     */
+    private $city2;
+
 
     public function __construct()
     {
         $this->createdAt = new DateTime();
-        $this->user = new ArrayCollection();
-        $this->city = new ArrayCollection();
-        $this->city2 = new ArrayCollection();
-     
+        $this->user = new ArrayCollection(); 
     }
     public function __toString()
     {
         return $this->name;
+        return $this->city;
     }
 
     public function getId(): ?int
@@ -244,23 +237,16 @@ class Product
         return $this;
     }
 
-    /**
-     * Get the value of city2
-     */ 
-    public function getCity2()
+    public function getCity2(): ?string
     {
         return $this->city2;
     }
 
-    /**
-     * Set the value of city2
-     *
-     * @return  self
-     */ 
-    public function setCity2($city2)
+    public function setCity2(?string $city2): self
     {
         $this->city2 = $city2;
 
         return $this;
     }
+
 }

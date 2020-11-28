@@ -5,7 +5,7 @@ namespace App\Repository;
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
-
+use phpDocumentor\Reflection\Types\Null_;
 
 /**
  * @method Product|null find($id, $lockMode = null, $lockVersion = null)
@@ -36,26 +36,39 @@ class ProductRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('p')
             ->addOrderBy('p.createdAt', 'DESC')
-            ->setMaxResults(5)
+            ->setMaxResults(6)
             ->getQuery()
             ->getResult();
     }
 
-    public function searchCity($critere)
-    {
-        return $this->createQueryBuilder('p')
-            ->Where('p.city = :city')
-            ->orWhere('p.city2 = :city')
-            ->setParameter('city', $critere)
+    public function searchCity(?string $critere)
+    {   
+        $q=$this->createQueryBuilder('p');
+
+        if ($critere) {
+            $q->andWhere('p.city = critere OR p.city2 = critere')
+            ->setParameter('critere', $critere)
+            ;
+        }
+        return $q
             ->getQuery()
             ->getResult();
     }
-
+   
     public function searchCategory($critere)
+    {   
+        return $this->createQueryBuilder('p')
+        ->Where('p.category = :category')
+        ->setParameter('category', $critere['category'])
+        ->getQuery()
+        ->getResult();
+    }
+
+    public function searchBrand($critere)
     {
         return $this->createQueryBuilder('p')
-            ->Where('p.category = :category')
-            ->setParameter('category', $critere['category'])
+            ->Where('p.brand = :brand')
+            ->setParameter('brand', $critere['brand'])
             ->getQuery()
             ->getResult();
     }

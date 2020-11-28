@@ -16,6 +16,7 @@
   });
 })();
 
+
 (function() {
   var placesAutocomplete = places({
   appId: 'plG0191SLGW0',
@@ -32,3 +33,4 @@
     aroundLatLngViaIP: false,
   });
 })();
+
