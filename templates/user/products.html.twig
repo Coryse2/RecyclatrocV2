@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Recyclatroc - Annonces
+{% block title %}Annonces -
 {% endblock %}
 
 {% block body %}
@@ -16,12 +16,12 @@
 						<thead>
 							<tr>
 								<th class="card-header">Nom</th>
-								<th class="card-header">Référence</th>
-								<th class="productPictureList card-header">Photo</th>
-								<th class="card-header">Commentaire</th>
+								<th class="card-header hide">Référence</th>
+								<th class="productPictureList card-header hide">Photo</th>
+								<th class="card-header hide">Commentaire</th>
 								<th class="card-header">Utilisateur</th>
-								<th class="card-header">Ajouté le</th>
-								<th class="card-header">Détail</th>
+								<th class="card-header hide">Ajouté le</th>
+								<th class="card-header ">Détail</th>
 								<th class="card-header">Actions</th>
 
 							</tr>
@@ -33,8 +33,8 @@
 					{% for product in user.products %}
 						<tr>
 							<td>{{ product.name }}</td>
-							<td>{{ product.reference }}</td>
-							<td>
+							<td class="hide">{{ product.reference }}</td>
+							<td class="hide">
 								<div class="productPictureList" style="width:100% text-align:center">
 									{% if product.picture is not null %}
 										<img class="productPictureList" style="width:40%" src="{{ asset(product.picture) }}">
@@ -44,9 +44,9 @@
 								</div>
 							</td>
 
-							<td>{{ product.comment }}</td>
+							<td class="hide">{{ product.comment }}</td>
 							<td>{{ product.user }}</td>
-							<td>{{ product.createdAt ? product.createdAt|date('d-m-Y') : '' }}</td>
+							<td class="hide">{{ product.createdAt ? product.createdAt|date('d-m-Y') : '' }}</td>
 
 							<td>
 								<a href="{{ path('product_show', {'id': product.id}) }}"><img class="productIconList" src="{{asset('images/document.png')}}"></a>
@@ -55,7 +55,7 @@
 							{% if app.user == product.user  %}
 
 								<td>
-									<a class="btn btn-outline-primary" href="{{ path('product_edit', {'id': product.id}) }}">Modifier</a>
+									<a class="btn btn-outline-primary table-btn" href="{{ path('product_edit', {'id': product.id}) }}" alt="Voir les détails du produit">Modifier</a>
 									{{ include('product/_delete_form.html.twig') }}
 								</td>
 							{% else %}
