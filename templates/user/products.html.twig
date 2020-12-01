@@ -37,9 +37,9 @@
 							<td class="hide">
 								<div class="productPictureList" style="width:100% text-align:center">
 									{% if product.picture is not null %}
-										<img class="productPictureList" style="width:40%" src="{{ asset(product.picture) }}">
+										<img class="productPictureList" style="width:40%" src="{{ asset(product.picture) }}" alt="image du produit">
 									{% else %}
-										<img class="productPictureList" style="width:40%" src="{{asset('images/imageDef.png')}}">
+										<img class="productPictureList" style="width:40%" src="{{asset('images/imageDef.png')}}" alt="Cet utilisateur n'a pas enregistré d'image pour le produit">
 									{% endif %}
 								</div>
 							</td>
@@ -49,7 +49,7 @@
 							<td class="hide">{{ product.createdAt ? product.createdAt|date('d-m-Y') : '' }}</td>
 
 							<td>
-								<a href="{{ path('product_show', {'id': product.id}) }}"><img class="productIconList" src="{{asset('images/document.png')}}"></a>
+								<a href="{{ path('product_show', {'id': product.id}) }}"><img class="productIconList" src="{{asset('images/document.png')}}" alt="Cliquez pour voir les détails du produit"></a>
 							</td>
 							{#Only the  product owner is athorized to make change on it#}
 							{% if app.user == product.user  %}

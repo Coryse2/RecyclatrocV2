@@ -56,16 +56,16 @@
 							<h3 class=" card-header">{{ product.name }}</h3>
 							<div class="card-body">
 								<li>
-									<h5 class="card-title">
+									<h4 class="card-title">
 										Annonce créée par :
-										{{ product.user.username }}</h5>
+										{{ product.user.username }}</h4>
 								</li>
 							</div>
 							<div class="home-picture">
 								{% if product.picture  %}
-									<img src="{{ asset(product.picture) }}" height="200" alt="image du produit". {{ product.name }}." de l'utilisateur". {{ product.user.username }} >
+									<img class="home-img" src="{{ asset(product.picture) }}" height="200" alt="image du produit". {{ product.name }}." de l'utilisateur". {{ product.user.username }} >
 								{% else %}
-									<img style="height: auto; width: 90%;" src="{{asset('images/imageDef.png')}}">
+									<img  class="home-default" style="height: auto; width: 90%;" src="{{asset('images/imageDef.png')}}" alt="Cet utilisateur n'a pas enregistré d'image pour le produit">
 								{% endif %}
 							</div>
 							<ul class="list-group list-group-flush">
