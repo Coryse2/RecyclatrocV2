@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
-{% block title %}Recyclatroc - FAQ
+{% block title %}FAQ -
 {% endblock %}
 {% block body %}
 	<main class="global-container">
 		<div class="text-container">
 			<h1 class="breadcrumb">A propos de nous
 			</h1>
-			<h2>
-				Foire Aux Questions</h2>
-			<h3 class="text-collapsible"><img class="text-icon" src="{{ asset('images/chat.png') }}">
-				Comment accéder aux annonces?</h3>
+			<h2 class="resp-list">Cliquez sur les questions pour dérouler</h2>
+<ul>
+			<li class="text-collapsible"><img class="text-icon" src="{{ asset('images/recycla_circle.png') }}">
+				Comment accéder aux annonces?</li>
 			<div class="content">
 				<p>
 					Pour accéder aux fonctionnalités complètes du site vous devez au préalable vous inscrire ici :
@@ -17,16 +17,16 @@
 				</p>
 			</div>
 			<br>
-			<h3 class="text-collapsible"><img class="text-icon" src="{{ asset('images/chat.png') }}">
-				Est-il normal que l’auteur de l’annonce me demande de l’argent?</h3>
+			<li class="text-collapsible"><img class="text-icon" src="{{ asset('images/recycla_circle.png') }}">
+				Est-il normal que l’auteur de l’annonce me demande de l’argent?</li>
 			<div class="content">
 				<p>
 					La communauté Recyclatroc est basée sur la notion de don, aucun membre ne doit donc vous demander de contrepartie financière.
 				</p>
 			</div>
 			<br>
-			<h3 class="text-collapsible"><img class="text-icon" src="{{ asset('images/chat.png') }}">
-				Comment modifier mes informations / supprimer mon compte?</h3>
+			<li class="text-collapsible"><img class="text-icon" src="{{ asset('images/recycla_circle.png') }}">
+				Comment modifier mes informations / supprimer mon compte?</li>
 			<div class="content">
 				{% if app.user %}
 					<p>
@@ -41,8 +41,8 @@
 			</p>
 		</div>
 		<br>
-		<h3 class="text-collapsible"><img class="text-icon" src="{{ asset('images/chat.png') }}">
-				Comment accéder à la liste des annonces que j'ai publiées?</h3>
+		<li class="text-collapsible"><img class="text-icon" src="{{ asset('images/recycla_circle.png') }}">
+				Comment accéder à la liste des annonces que j'ai publiées?</li>
 			<div class="content">
 				{% if app.user %}
 					<p>
@@ -56,8 +56,8 @@
 			</p>
 		</div>
 		<br>
-		<h3 class="text-collapsible"><img class="text-icon" src="{{ asset('images/chat.png') }}">
-			Comment signaler une annonce inappropriée?</h3>
+		<li class="text-collapsible"><img class="text-icon" src="{{ asset('images/recycla_circle.png') }}">
+			Comment signaler une annonce inappropriée?</li>
 		<div class="content">
 			<p>
 				Pour signaler un contenu offensant, des propos ou un comportement inappropriés de la part d’un utilisateur vous pouvez contacter l’administrateur ici :
@@ -65,16 +65,17 @@
 			</p>
 		</div>
 		<br>
-		<h3 class="text-collapsible"><img class="text-icon" src="{{ asset('images/chat.png') }}">
-			Mes données sont-elles bien protégées?</h3>
+		<li class="text-collapsible"><img class="text-icon" src="{{ asset('images/recycla_circle.png') }}">
+			Mes données sont-elles bien protégées?</li>
 		<div class="content">
 			<p>
 				Votre mot de passe est protégé par un algorithme de hashage complexe.
 			</p>
 			<p>
-				Vos données personnelles ne sont pas communiquées, vous pouvez les actualiser à tout moment ou les supprimer.
+				Vos données personnelles ne sont pas communiquées, vous pouvez les actualiser à tout moment ou les supprimer en toute autonomie depuis la page "Mon compte".
 			</p>
 		</div>
+	</ul>
 		<br>
 		<a class="btn btn-outline-dark" href="#top">Haut de page</a>
 	    <input type="button"  class="btn btn-outline-dark" value="Page précédente" onclick="history.go(-1)">

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Recyclatroc - Utilisateur
+{% block title %}Utilisateur -
 {% endblock %}
 
 {% block body %}
@@ -17,9 +17,9 @@
 			<div class="user-container">
 				<div class="leftUser">
 					{% if user.avatar %}
-						<img src="{{ asset(user.avatar) }}" height="200">
+						<img src="{{ asset(user.avatar) }}" height="200" alt="avatar de l'utilisateur". {{ user.username }} >
 					{% else %}
-						<img class="productPictureSolo" src="{{asset('images/consciousness.png')}}">
+						<img class="productPictureSolo" src="{{asset('images/consciousness.png')}}" alt="Cet utilisateur n'a pas enregistré d'avatar">
 					{% endif %}
 				</div>
 				<div class="rigthUser">

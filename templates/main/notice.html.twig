@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Recyclatroc - Mentions légales
+{% block title %}Mentions légales -
 {% endblock %}
 
 {% block body %}
@@ -8,9 +8,11 @@
 		<div class="text-container">
 			<h1 class="breadcrumb">Mentions légales
 			</h1>
+		<h2 class="resp-list">Cliquez sur les blocs pour dérouler</h2>
 
-			<h3 class="text-collapsible"><img class="text-icon" src="{{ asset('images/chat.png') }}">
-				Identité</h3>
+	<ul>
+			<li class="text-collapsible"><img class="text-icon" src="{{ asset('images/recycla_circle.png') }}">
+				Identité</li>
 			<div class="content">
 				<ol class="identity-list">
 					<li>Nom du site web : Recyclatroc</li>
@@ -26,27 +28,27 @@
 				</ol>
 			</div>
 			<br>
-			<h3 class="text-collapsible"><img class="text-icon" src="{{ asset('images/chat.png') }}">Conditions d’utilisation</h3>
+			<li class="text-collapsible"><img class="text-icon" src="{{ asset('images/recycla_circle.png') }}">Conditions d’utilisation</li>
 			<div class="content">
 				<p>L’utilisation du présent site implique l’acceptation pleine et entière des conditions générales d’utilisation décrites ci-après.</p>
 				<p>Ces conditions d’utilisation sont susceptibles d’être modifiées ou complétées à tout moment.</p>
 			</div>
 			<br>
-			<h3 class="text-collapsible"><img class="text-icon" src="{{ asset('images/chat.png') }}">
-				Informations</h3>
+			<li class="text-collapsible"><img class="text-icon" src="{{ asset('images/recycla_circle.png') }}">
+				Informations</li>
 			<div class="content">
 				<p>Les informations et documents du site sont présentés à titre indicatif, n’ont pas de caractère exhaustif, et ne peuvent engager la responsabilité du propriétaire du site.</p>
 				<p>Le propriétaire du site ne peut être tenu responsable des dommages directs et indirects consécutifs à l’accès au site.</p>
 			</div>
 			<br>
-			<h3 class="text-collapsible"><img class="text-icon" src="{{ asset('images/chat.png') }}">Interactivité</h3>
+			<li class="text-collapsible"><img class="text-icon" src="{{ asset('images/recycla_circle.png') }}">Interactivité</li>
 			<div class="content">
 				<p>Les utilisateurs du site peuvent y déposer du contenu, apparaissant sur le site dans des espaces dédiés (notamment via les commentaires).</p>
 				<p>Le contenu déposé reste sous la responsabilité de leurs auteurs, qui en assument pleinement l’entière responsabilité juridique.</p>
 				Le propriétaire du site se réserve néanmoins le droit de retirer sans préavis et sans justification tout contenu déposé par les utilisateurs qui ne satisferait pas à la charte déontologique du site ou à la législation en vigueur.</p>
 		</div>
 		<br>
-		<h3 class="text-collapsible"><img class="text-icon" src="{{ asset('images/chat.png') }}">Propriété intellectuelle</h3>
+		<li class="text-collapsible"><img class="text-icon" src="{{ asset('images/recycla_circle.png') }}">Propriété intellectuelle</li>
 		<div class="content">
 			<p>Sauf mention contraire, tous les éléments accessibles sur le site (textes, images, graphismes, logo, icônes, sons, logiciels, etc.) restent la propriété exclusive de leurs auteurs, en ce qui concerne les droits de propriété intellectuelle ou les droits d’usage. 1</p>
 			<p>Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de l’auteur.23</p>
@@ -54,7 +56,7 @@
 			<p>Les marques et logos reproduits sur le site sont déposés par les sociétés qui en sont propriétaires.</p>
 		</div>
 		<br>
-		<h3 class="text-collapsible"><img class="text-icon" src="{{ asset('images/chat.png') }}">Liens</h3>
+		<li class="text-collapsible"><img class="text-icon" src="{{ asset('images/recycla_circle.png') }}">Liens</li>
 		<div class="content">
 			<ul>
 				<li>Liens sortants</li>
@@ -70,43 +72,20 @@
 			</ul>
 		</div>
 		<br>
-		<h3 class="text-collapsible"><img class="text-icon" src="{{ asset('images/chat.png') }}">Confidentialité</h3>
+		<li class="text-collapsible"><img class="text-icon" src="{{ asset('images/recycla_circle.png') }}">Confidentialité</li>
 		<div class="content">
-			<p>Tout utilisateur dispose d’un droit d’accès, de rectification et d’opposition aux données personnelles le concernant, en effectuant sa demande écrite et signée, accompagnée d’une preuve d’identité. 5 6 7 8</p>
-			<p>Le site ne recueille pas d’informations personnelles, et n’est pas assujetti à déclaration à la CNIL. 9</p>
+			<p>Tout utilisateur dispose d’un droit d’accès, de rectification et de suppressions de ses données personnelles depuis la page "Mon compte".</p>
+			<p>Le site ne conserve pas d’informations personnelles, aucune donnée n'est conservée après leur suppression</p>
+			<p>Le site n'utilise pas de cookie</p>
 		</div>
 		<br>
-		<h3 class="text-collapsible"><img class="text-icon" src="{{ asset('images/chat.png') }}">Crédits</h3>
+		<li class="text-collapsible"><img class="text-icon" src="{{ asset('images/recycla_circle.png') }}">Crédits</li>
 		<div class="content">
 			<p>Icones, dont 0 de la page "erreur 404" :
 				<a href="”https://www.flaticon.com/”">Flaticon</a><br>
-				<div>Favicon made by
-					<a href="https://www.flaticon.com/authors/icongeek26" title="Icongeek26">Icongeek26</a>
-					from
-					<a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-				</div>
-				<img class="text-icon" src="{{ asset('images/chat.png') }}">
-				Icon made by
-				Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-			</p>
-			<p>Icone "leaf" :
-				<a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
-				from
-				<a href="https://www.flaticon.com/" title="Flaticon">
-					www.flaticon.com</a>
-			</p>
-			<p>Photos :
-				<a href="”https://www.flaticon.com/”">Pexel</a>
-			</p>
-			<p>Image de bannière 2 :
-				<a href="https://www.freepik.com/free-photos-vectors/coffee">Coffee vector created by macrovector - www.freepik.com</a>
-			</p>
-			<p>Icone FAQ :
-				<a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
-				from
-				<a href="https://www.flaticon.com/" title="Flaticon">
-					www.flaticon.com</a>
-			</p>
+				<img class="text-icon" src="{{ asset('images/recycla_circle.png') }}">
+				Favicon & Icone made by Coryse avec <a href="https://www.canva.com/fr_fr/">Canva</a><br>
+				</p>
 			<p>Mentions légales fournies par WebExpress – Version 1.4 – Utilisation libre sous Licence Creative Commons CC BY-NC-ND 3.0 FR / creativecommons.org.</p>
 			<p>Thème :
 				<a href="https://bootswatch.com/united/">Bootswatch - United
@@ -114,7 +93,7 @@
 			</p>
 		</div>
 		<br>
-		<h3 class="text-collapsible"><img class="text-icon" src="{{ asset('images/chat.png') }}">Notes</h3>
+		<li class="text-collapsible"><img class="text-icon" src="{{ asset('images/recycla_circle.png') }}">Notes</li>
 		<div class="content">
 			<ol>
 				<li>
@@ -139,6 +118,7 @@
 				</li>
 			</ol>
 		</div>
+	<ul>
 		<a class="btn btn-outline-dark" href="#top">Haut de page</a>
 	<input type="button"  class="btn btn-outline-dark" value="Page précédente" onclick="history.go(-1)">
 </form>
