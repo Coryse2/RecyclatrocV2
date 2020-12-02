@@ -17,7 +17,7 @@
 			<div class="user-container">
 				<div class="leftUser">
 					{% if user.avatar %}
-						<img src="{{ asset(user.avatar) }}" height="200" alt="avatar de l'utilisateur". {{ user.username }} >
+						<img src="{{ asset(user.avatar) }}" height="200" alt="avatar de l'utilisateur" >
 					{% else %}
 						<img class="productPictureSolo" src="{{asset('images/consciousness.png')}}" alt="Cet utilisateur n'a pas enregistré d'avatar">
 					{% endif %}
@@ -69,6 +69,7 @@
 
 			{# Bouton retour en arrière #}			
 <input type="button"  class="btn btn-outline-dark" value="Page précédente" onclick="history.go(-1)">
+</div>
 </form>
 		</main>
 	{% endblock %}

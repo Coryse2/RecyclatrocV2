@@ -41,20 +41,27 @@ class ProductRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function searchCity(?string $critere)
-    {   
-        $q=$this->createQueryBuilder('p');
 
-        if ($critere) {
-            $q->andWhere('p.city = critere OR p.city2 = critere')
-            ->setParameter('critere', $critere)
-            ;
+     /**
+     * 
+     * @return void
+     */
+    public function search($city)
+    {
+        $query = $this->createQueryBuilder('p');
+
+        if ($city != null){
+            $query->Where('p.city LIKE :city')
+            ->orWhere('p.city2 LIKE :city')
+                ->setParameter('city', $city )
+                ->addOrderBy('p.name', 'ASC');
         }
-        return $q
+        return $query
             ->getQuery()
-            ->getResult();
+            ->getResult()
+        ;
     }
-   
+
     public function searchCategory($critere)
     {   
         return $this->createQueryBuilder('p')

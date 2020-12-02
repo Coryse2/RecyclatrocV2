@@ -2,6 +2,7 @@
 namespace App\Service;
 
 use Symfony\Component\Form\Form;
+use Symfony\Component\Mime\MimeTypes;
 
 
 class FileUploadManager
@@ -16,6 +17,8 @@ class FileUploadManager
     public function upload(Form $formFile)
     {
         $file = $formFile->getData();
+    
+
         if ($file != null) {
             // on stock le nom du fichier
             // il est constitué de l'id du film, d'un point et de l'extension du fichier
@@ -26,7 +29,7 @@ class FileUploadManager
 
             // maintenant, la méthode retourne le chemin du fichier uploadé
             return $movedFile->getPathname();
-
+            
         //return $this->targetFolderPath;
         } else {
             return null;

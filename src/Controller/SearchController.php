@@ -16,23 +16,25 @@ class SearchController extends AbstractController
     /**
      * @Route("/search/cities", name="search_cities")
      */
-    public function searchCity(Request $request, ProductRepository $productRepository): Response
+    public function searchCity(Request $request, ProductRepository $productRepository)
     {
-
         $products = [];
-        $formSearchProduct = $this->createForm(CitySearchType::class);
-        $formSearchProduct->handleRequest($request);
-        if ($formSearchProduct->isSubmitted() && $formSearchProduct->isValid())
+        $products = $productRepository->findAll();
+        $form = $this->createForm(CitySearchType::class);
+        $search = $form->handleRequest($request);
+       
+        if ($form->isSubmitted() && $form->isValid())
         {
-            $critere = $formSearchProduct->getData();
-            $products = $productRepository->searchCity($request->request->get('product_search'));
+            $products=$productRepository->search($search->get('city')
+            ->getData());   
         }
-
+dump($products);
         return $this->render('search/cities.html.twig', [
-            'form' => $formSearchProduct->createView(),
+            'form' => $form->createView(),
             'products'=> $products,
         ]);
     }
+ 
 
     /**
      * @Route("/search/categories", name="search_categories")
