@@ -48,9 +48,8 @@ class ProductRepository extends ServiceEntityRepository
      */
     public function search($city)
     {
-        $query = $this->createQueryBuilder('p')
-        ->Where('p.city = :city' )
-        ->OrWhere( 'p.city2 = :city');
+        $query = $this->createQueryBuilder('p');
+
         if ($city != null){
             $query->Where('p.city LIKE :city')
             ->orWhere('p.city2 LIKE :city')
