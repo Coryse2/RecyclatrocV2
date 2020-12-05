@@ -41,7 +41,13 @@
 								<li><img class="text-icon" src="{{ asset('images/location-pin.png') }}">
 								{{ product.name }}
 								à
-								{{ product.city }} ou {{ product.city2 }}
+								{% if  product.city2 == null %}
+										{{ product.city }}
+									{% else %}
+										{{ product.city }}
+										ou
+										{{ product.city2 }}
+									{% endif %}
 									<a href="{{ path('product_show', {'id': product.id}) }}">Détail
 									</a>
 								</li>

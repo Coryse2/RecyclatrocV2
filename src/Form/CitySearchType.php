@@ -14,7 +14,7 @@ class CitySearchType extends AbstractType
     {
         $builder
             ->add('city',null, [
-                'label' => 'Ville',
+                'label' => 'Ville - Saisissez le nom de la ville, ne saisissez pas un code postal ni votre arrondissement.',
             ])  
             ->add('Recherche', SubmitType::class)
         ;
