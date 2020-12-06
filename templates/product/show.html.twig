@@ -12,11 +12,11 @@
 		</div>
 		{# cards #}
 		<div class="product-container">
-		<div class="leftProduct">
+		<div class="leftProduct ">
 				{% if product.picture  %}
-					<img src="{{ asset(product.picture) }}" height="200">
+					<img src="{{ asset(product.picture) }}" height="200" alt"image du produit">
 				{% else %}
-					<img class="productPictureSolo" src="{{asset('images/imageDef.png')}}">
+					<img class="productPictureSolo" src="{{asset('images/imageDef.png')}}" alt="l'utilisateur n'a pas entegistré de photo du produit">
 				{% endif %}
 			</div>
 
