@@ -7,7 +7,7 @@
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+ 
 <main class="global-container ">
 <div class="card-header">
 		<h1 class="breadcrumb">Inscription</h1>
@@ -15,7 +15,8 @@
 		</div>
 		<div class="signin">
 			{{ form_start(form) }}
-			{{ form_row(form.username) }}{{ form_row(form.email) }}
+			{{ form_row(form.username) }}
+			{{ form_row(form.email) }}
 			{{ form_row(form.avatar) }}
 			{{ form_row(form.presentation) }}
 			{{ form_row(form.phone) }}

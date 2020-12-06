@@ -67,7 +67,7 @@ class Product
     /**
      *
      * @ORM\Column(type="string", length=255,nullable=false)
-     * @Assert\Regex("/^([a-zA-Z-?]+)$/")
+     * @Assert\Regex("/^([a-z A-Z -?]+)$/")
      */
     private $city;
 
@@ -79,7 +79,7 @@ class Product
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Regex("/^([a-zA-Z-?]+)$/")
+     * @Assert\Regex("/^([a-z A-Z -?]+)$/")
      */
     private $city2;
 

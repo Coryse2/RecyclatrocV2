@@ -47,10 +47,6 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
-
             // on utilise la méthode upload() et on stocke la valeur retournée (= le chemin du fichier)
             $imagePath = $fileUploadManager->upload($form['avatar'], $user->getId());
             // on utilise setImage()
@@ -75,9 +71,9 @@ class RegistrationController extends AbstractController
                 ->to($user->getEmail())
                 ->subject('Validation de votre compte')
                 ->htmlTemplate('registration/confirmation_email.html.twig');
-           
+           return $this->redirectToRoute('app_login');
                 $mailer->send($email);
-            return $this->redirectToRoute('app_login');
+            
         }
 
         return $this->render('registration/register.html.twig', [
