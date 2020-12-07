@@ -28,7 +28,7 @@ class SearchController extends AbstractController
             $products=$productRepository->search($search->get('city')
             ->getData());   
         }
-dump($products);
+
         return $this->render('search/cities.html.twig', [
             'form' => $form->createView(),
             'products'=> $products,
