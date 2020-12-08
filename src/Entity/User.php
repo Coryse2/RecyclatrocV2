@@ -33,9 +33,9 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(name="is_active", type="boolean")
-     */
-    private $isActive;
-
+     *
+    *private $isActive;
+*/
 
     /**
      * @ORM\Column(type="json")
@@ -97,9 +97,9 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="boolean")
-     */
-    private $isVerified = false;
-
+     
+    *private $isVerified = false;
+*/
     public function __construct()
     {
         $this->isActive = true;
@@ -327,33 +327,34 @@ class User implements UserInterface
     }
     /**
      * Get the value of isActive
-     */
-    public function getIsActive()
-    {
-        return $this->isActive;
-    }
+     *
+    *public function getIsActive()
+    *{
+    *    return $this->isActive;
+    *}
 
-    /**
+    
      * Set the value of isActive
      *
      * @return  self
-     */
-    public function setIsActive($isActive)
-    {
-        $this->isActive = $isActive;
+     *
+    *public function setIsActive($isActive)
+    *{
+     *   $this->isActive = $isActive;
+*
+     *   return $this;
+    *}
 
-        return $this;
-    }
+    *public function isVerified(): bool
+    *{
+    *    return $this->isVerified;
+    *}
+*
+    *public function setIsVerified(bool $isVerified): self
+    *{
+      *  $this->isVerified = $isVerified;
 
-    public function isVerified(): bool
-    {
-        return $this->isVerified;
-    }
-
-    public function setIsVerified(bool $isVerified): self
-    {
-        $this->isVerified = $isVerified;
-
-        return $this;
-    }
+     *   return $this;
+    *}
+    */
 }

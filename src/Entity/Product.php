@@ -67,13 +67,13 @@ class Product
     /**
      *
      * @ORM\Column(type="string", length=255,nullable=false)
-     * @Assert\Regex("/^([a-z  A-Z é -?]+)$/")
+     * @Assert\Regex("/^([a-z  A-Z é É -?]+)$/")
      */
     private $city;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Regex("/^([a-z  A-Z é -?]+)$/")
+     * @Assert\Regex("/^([a-z  A-Z é É -?]+)$/")
      */
     private $city2;
     
