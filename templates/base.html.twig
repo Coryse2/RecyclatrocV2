@@ -25,8 +25,8 @@
 	</head>
 	<body>
 		{% include '/assets/navbar.html.twig' %}
-		{% block body %}{% include '/assets/footer.html.twig' %}{% endblock %}
-		
+		{% block body %}{% endblock %}
+		{% include '/assets/footer.html.twig' %}
 
 		{% block javascripts %}
 			<!-- Add jQuery via CDN : https://code.jquery.com/ -->
