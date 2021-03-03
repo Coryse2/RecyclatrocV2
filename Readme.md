@@ -11,6 +11,10 @@ Bootswatch United them
 Algolia Places
 #responsive #php #javascript #css
 
+Edit : 03/04/2021 : Accessibility need to be fixed 
++ the city search conception need to be improved
++ problems with message for password renewal need to be fixed (remove the bundle and make a service?)
+
  ___________________________________________________________________________________________________________________________________
 
  Welcome on Recyclatroc project
